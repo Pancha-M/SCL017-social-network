@@ -1,0 +1,45 @@
+body{
+    background-color: #FAF0EF;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.containerGrid{
+    display: grid;
+    column-gap: 100px;
+}
+
+img{ 
+    Width: 315px;
+    Height: auto;
+}
+
+.about{
+    Size: 12px;
+    Line-height: 14,06px;
+    text-align: center;
+
+}
+
+.signInButton{
+    cursor: pointer;
+    border-radius: 20px;
+    border: none;
+    background-color: #49b18e;
+    color: #FAF0EF;
+    width: 225px;
+    height: 40px;
+    font-size: 16px;
+}
+
+.signUpButton{
+    cursor: pointer;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: rgba(108, 166, 217, 1);
+    background-color: #FAF0EF;
+    color:dimgrey;  
+    width: 225px;
+    height: 40px;
+    font-size: 16px;
+}
