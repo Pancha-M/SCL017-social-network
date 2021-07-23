@@ -100,3 +100,31 @@ b{
     background-color: #fcd3cf;
     border-radius: 5px;
 }
+
+/* @media (max-width: 1440px) {
+
+.containerLogin{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.loginButtons{
+    background-color: #fff;
+    width: 322px;
+    height: 418px;
+    
+}
+
+.signInButton{
+    margin-top: 93px;
+    margin-bottom: 30px;
+}
+
+.signUpButton{
+    margin-bottom: 39px;
+}
+
+
+
+} */
