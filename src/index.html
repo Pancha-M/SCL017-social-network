@@ -14,6 +14,30 @@
 
 <div id="root" class="root"></div>
 
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCEVbpRPVfFtGPJSBPj1z66DFy-VAA6x7o",
+    authDomain: "sn-womanbike.firebaseapp.com",
+    projectId: "sn-womanbike",
+    storageBucket: "sn-womanbike.appspot.com",
+    messagingSenderId: "779290616932",
+    appId: "1:779290616932:web:41828eb05aaef92e816b71",
+    measurementId: "G-FNMMPY22FB"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
   <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
  
   <script type="module" src="main.js"></script>
@@ -21,3 +45,38 @@
 </body>
 </html>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="containerLogin">
+  <div class="logo">
+      <img src="img/logoBike.png" alt="logo de la aplicación">
+  </div>
+  <div class="welcome">
+      <p class="welcome">Bienvenida a la comunidad</p>
+  </div>
+  <div class="formRegister">
+     <input type="text">
+     <input type="email">
+     <input type="password">
+     <input type="password">
+      <div class="socialNetworkButton">
+          <p>Iniciar sesión con:</p>
+          <div class="icons">
+          <span class="iconify" id="googleButton" data-inline="false" data-icon="flat-color-icons:google" style="font-size: 35px;"></span>
+          <span class="iconify" data-inline="false" data-icon="logos:facebook" style="font-size: 32px;"></span>
+          </div>
+      </div>
+  </div>
+</div>
