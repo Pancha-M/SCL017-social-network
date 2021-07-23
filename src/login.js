@@ -1,16 +1,12 @@
-
-
-/*let htmlCode = ''
+/* let htmlCode = ''
 htmlCode += `<p>HOLA</p>`
-
-divRoot.innerHTML = htmlCode*/
+divRoot.innerHTML = htmlCode */
 
 export const login = () => {
-  
-    //const login = document.createElement('div');
-   console.log('Holi');
+  // const login = document.createElement('div');
+  // console.log('Holi');
 
-   const viewLogin = `<div class="containerLogin">
+  const viewLogin = `<div class="containerLogin">
                         <div class="logo">
                             <img src="logoBike.png" alt="logo de la aplicación">
                         </div>
@@ -31,7 +27,5 @@ export const login = () => {
                             </div>
                         </div>
                      </div>`;
-   return viewLogin;
-  };
- 
-  
+  return viewLogin;
+};
