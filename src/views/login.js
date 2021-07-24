@@ -7,7 +7,7 @@
 export const login = () => {
 // const divContainerLogin = document.createElement('div');
 
-const viewLogin = `<div class="containerLogin">
+  const viewLogin = `<div class="containerLogin">
                         <div class="logo">
                             <img src="img/logoBike.png" alt="logo de la aplicación">
                         </div>
@@ -33,6 +33,4 @@ const viewLogin = `<div class="containerLogin">
   return viewLogin;
 };
 
-
 signInButton.addEventListener('click', viewSignIn);
-
