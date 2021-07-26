@@ -9,7 +9,7 @@ export const login = () => {
 
   const viewLogin = `<div class="containerLogin">
                         <div class="logo">
-                            <img src="logoBike.png" alt="logo de la aplicación">
+                            <img src="img/logoBike.png" alt="logo de la aplicación">
                         </div>
                         <div class="aboutContainer">
                             <p class="about">Mas info sobre nuestra comunidad<b>aquí</b></p>
@@ -32,3 +32,5 @@ export const login = () => {
 
   return viewLogin;
 };
+
+signInButton.addEventListener('click', viewSignIn);

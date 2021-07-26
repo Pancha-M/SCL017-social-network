@@ -1,9 +1,9 @@
 // importamos la funcion que vamos a testear
-import { Login } from '../src/login.js';
+import { login } from '../src/views/login.js';
 
-describe('Login', () => {
+describe('login', () => {
   it('deberia ser codigo html', () => {
-    const viewLogin = Login();
+    const viewLogin = login();
     expect(viewLogin instanceof HTMLElement).toBe(true);
   });
 });

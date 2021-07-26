@@ -2,17 +2,23 @@
 // import firebase from 'firebase/app';
 // import 'firebase/auth';
 
-import { login } from './login.js';
+import { login } from './views/login.js';
+import { signIn } from './views/signIn.js';
+import { signUp } from './views/signUp.js';
 import { myFunction } from './lib/index.js';
 
 myFunction();
 
+// insertar html en el div root
 document.getElementById('root').innerHTML = login();
+document.getElementById('root').innerHTML = signIn();
+document.getElementById('root').innerHTML = signUp();
 
+// Firebase
 const provider = new firebase.auth.GoogleAuthProvider();
 
+// INICIAR SESION CON GOOGLE
 const googleButton = document.getElementById('googleButton');
-// eslint-disable-next-line no-use-before-define
 console.log(googleButton);
 
 const signInGoogle = () => {
@@ -41,3 +47,13 @@ const signInGoogle = () => {
 };
 
 googleButton.addEventListener('click', signInGoogle, false);
+
+//funcion signInButton
+
+const signInButton = document.getElementById('signInButton');
+const signInButton = () => {
+  
+
+
+}
+
