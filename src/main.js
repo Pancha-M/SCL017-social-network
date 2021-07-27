@@ -46,14 +46,14 @@ const signInGoogle = () => {
     });
 };
 
-googleButton.addEventListener('click', signInGoogle, false);
+// googleButton.addEventListener('click', signInGoogle, false);
 
-//funcion signInButton
+// //funcion signInButton
 
-const signInButton = document.getElementById('signInButton');
-const signInButton = () => {
+// const signInButton = document.getElementById('signInButton');
+// const signInButton = () => {
   
 
 
-}
+// }
 
