@@ -50,10 +50,16 @@ const signInGoogle = () => {
 
 // //funcion signInButton
 
+<<<<<<< HEAD
 // const signInButton = document.getElementById('signInButton');
 // const signInButton = () => {
   
 
 
 // }
+=======
+const signInButton = document.getElementById('signInButton');
+const signInButton = () => {
+}
+>>>>>>> upstream/master
 
