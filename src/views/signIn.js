@@ -1,5 +1,5 @@
 export const signIn = () => {
-  // const divContainerLogin = document.createElement('div');
+  const divContainerSignIn = document.createElement('div');
 
   const viewSignIn = `<div class="containerLogin">
                             <div class="logo">
@@ -9,7 +9,7 @@ export const signIn = () => {
                                 <input type="email" class="inputSignIn" id="inputEmail" placeholder="Email">
                                 <input type="password" class="inputSignIn" id="inputPass" placeholder="Contraseña">
                                 <p class=passwordRecover>Recuperar Contraseña</p>
-                                <button class="signInButton" id="signInButton">Ingresar</button>
+                                <button class="enterButton" id="enterButton">Ingresar</button>
                             </div>
                             <div class="socialNetworkButton">
                                 <p>Iniciar sesión con:</p>
@@ -18,7 +18,7 @@ export const signIn = () => {
                                 </div>
                             </div>
                          </div>`;
-  // divContainerLogin.appendChild(viewLogin);
+  divContainerSignIn.innerHTML = viewSignIn;
 
-  return viewSignIn;
+  return divContainerSignIn;
 };

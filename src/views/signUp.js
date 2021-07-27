@@ -1,5 +1,6 @@
 export const signUp = () => {
-  // const divContainerLogin = document.createElement('div');
+
+  const divContainerSignUp = document.createElement('div');
 
   const viewSignUp = `<div class="containerLogin">
       <div class="logo">
@@ -22,7 +23,6 @@ export const signUp = () => {
               </div>
           </div>
     </div>`;
-  // divContainerLogin.appendChild(viewLogin);
-
-  return viewSignUp;
+  divContainerSignUp.innerHTML = viewSignUp;
+  return divContainerSignUp;
 };

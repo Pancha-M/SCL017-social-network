@@ -48,7 +48,6 @@ b{
 .signInButton{
     cursor: pointer;
     border-radius: 20px;
-    border: none;
     margin: 5px;
     background-color: #49b18e;
     color: #FAF0EF;
@@ -56,6 +55,7 @@ b{
     height: 40px;
     font-size: 16px;
     box-shadow: 0px 2px 5px 2px #bbbbbb;
+    text-align: center;
 }
 .signInButton:hover{
     background-color: #63bd9f;

@@ -47,7 +47,8 @@ input{
     height: 35px;
     font-size: 16px;
     box-shadow: 0px 2px 5px 2px #bbbbbb;
-    }
+}
+
     .registerButton:hover{
         background-color: #63bd9f;
         width: 172px;
