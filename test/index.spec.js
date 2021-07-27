@@ -1,5 +1,5 @@
 // importamos la funcion que vamos a testear
-import { login } from '../src/login.js';
+import { login } from '../src/views/login.js';
 
 describe('login', () => {
   it('deberia ser codigo html', () => {
