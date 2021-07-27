@@ -1,5 +1,4 @@
 export const signUp = () => {
-
   const divContainerSignUp = document.createElement('div');
 
   const viewSignUp = `<div class="containerLogin">
