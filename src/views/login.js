@@ -5,19 +5,18 @@
 // divRoot.innerHTML = htmlCode
 
 export const login = () => {
-// const divContainerLogin = document.createElement('div');
 
-  const viewLogin = `<div class="containerLogin">
+    const viewLogin = `<div class="containerLogin">
                         <div class="logo">
                             <img src="img/logoBike.png" alt="logo de la aplicación">
                         </div>
                         <div class="aboutContainer">
-                            <p class="about">Mas info sobre nuestra comunidad<b>aquí</b></p>
+                            <p class="about">Mas info sobre nuestra comunidad <b>aquí</b></p>
                         </div>
                         <div class="loginButtons">
                             <div class="typeButton" id="typeButton">
-                                <button type="button" class="signInButton">Ya tengo una cuenta</button>
-                                <button type="button" class="signUpButton">Crear una cuenta</button>
+                                <a href="#signIn" class="signInButton" id="signInButton">Ya tengo una cuenta</a>
+                                <a href="#signUp" class="signUpButton" d="signUnButton">Crear una cuenta</a>
                             </div>
                             <div class="socialNetworkButton">
                                 <p>Iniciar sesión con:</p>
@@ -28,7 +27,6 @@ export const login = () => {
                             </div>
                         </div>
                      </div>`;
-  // divContainerLogin.appendChild(viewLogin);
 
   return viewLogin;
 };

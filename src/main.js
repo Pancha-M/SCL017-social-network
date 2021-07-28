@@ -6,13 +6,21 @@ import { login } from './views/login.js';
 import { signIn } from './views/signIn.js';
 import { signUp } from './views/signUp.js';
 import { myFunction } from './lib/index.js';
-
-myFunction();
+import { changeRouter } from './lib/router.js';
 
 // insertar html en el div root
-document.getElementById('root').innerHTML = login();
-document.getElementById('root').innerHTML = signIn();
-document.getElementById('root').innerHTML = signUp();
+
+const init = () => {
+  document.getElementById('root').innerHTML = login();
+
+  window.addEventListener('hashchange', () => {
+    myFunction();
+    console.log(window.location.hash);
+    changeRouter(window.location.hash);
+  });
+};
+
+window.addEventListener('load', init);
 
 // Firebase
 const provider = new firebase.auth.GoogleAuthProvider();
@@ -46,14 +54,10 @@ const signInGoogle = () => {
     });
 };
 
-googleButton.addEventListener('click', signInGoogle, false);
+// googleButton.addEventListener('click', signInGoogle, false);
 
-//funcion signInButton
+// funcion signInButton
 
-const signInButton = document.getElementById('signInButton');
-const signInButton = () => {
-  
-
-
-}
-
+// const signInButton = document.getElementById('signInButton');
+// const signInButton = () => {
+// }
