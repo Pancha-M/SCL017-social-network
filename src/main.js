@@ -9,7 +9,7 @@ import { myFunction } from './lib/index.js';
 import { changeRouter } from './lib/router.js';
 
 const init = () => {
-  document.getElementById('root').innerHTML = login();
+  document.getElementById('root').appendChild(login());
 
   window.addEventListener('hashchange', () => {
     myFunction();
@@ -25,7 +25,7 @@ let provider = new firebase.auth.GoogleAuthProvider();
 
 // INICIAR SESION CON GOOGLE
 
-const signInGoogle = () => {
+export const signInGoogle = () => {
   firebase.auth()
     .signInWithPopup(provider)
     .then((result) => {
@@ -49,4 +49,4 @@ const signInGoogle = () => {
     });
 };
 
-document.getElementById('google-btn').addEventListener('click', signInGoogle, false);
+

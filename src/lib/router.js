@@ -25,22 +25,37 @@ const showTemplate = (hash) => {
   }
 };
 
-// Se le asocia al hash una ruta para que retorne el template
-// que se le asocio en la funcion showTemplate
-// se reemplaza el # por un /
+// cambia la ruta, reemplaza el # por un / y
+// se cambia el HTML con el return showtemplate
 export const changeRouter = (hash) => {
-  if (hash === '#login') {
-    window.history.replaceState({}, 'login', '/login');
-    return showTemplate(hash);
-  }
+  switch (hash) {
+    case '#login':
+      window.history.replaceState({}, 'login', '/');
+      return showTemplate(hash);
 
-  if (hash === '#signIn') {
-    window.history.replaceState({}, 'signIn', '/signIn');
-    return showTemplate(hash);
-  }
+    case '#signIn':
+      window.history.replaceState({}, 'signIn', '/signIn');
+      return showTemplate(hash);
 
-  if (hash === '#signUp') {
-    window.history.replaceState({}, 'signUp', '/signUp');
-    return showTemplate(hash);
+    case '#signUp':
+      window.history.replaceState({}, 'signUp', '/signUp');
+      return showTemplate(hash);
+  }
+};
+
+// se le da funcionalidad correcta a los btn de atras y adelante del navegador
+window.onpopstate = (hash) => {
+  switch (window.location.pathname) {
+    case '/':
+      hash = '#login';
+      return showTemplate(hash);
+
+    case '/signIn':
+      hash = '#signIn';
+      return showTemplate(hash);
+
+    case '/signUp':
+      hash = '#signUp';
+      return showTemplate(hash);
   }
 };
