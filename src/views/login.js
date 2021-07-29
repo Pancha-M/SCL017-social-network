@@ -33,7 +33,7 @@ export const login = () => {
 
 containerViewLogin.innerHTML = viewLogin;
 
-let googleBtn = containerViewLogin.querySelector('.googlebtn');
+const googleBtn = containerViewLogin.querySelector('.googlebtn');
 console.log(googleBtn);
 
 googleBtn.addEventListener('click',signInGoogle, false);
