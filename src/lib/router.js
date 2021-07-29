@@ -28,16 +28,15 @@ const showTemplate = (hash) => {
 // cambia la ruta, reemplaza el # por un / y
 // se cambia el HTML con el return showtemplate
 export const changeRouter = (hash) => {
-  switch (hash) {
-    case '#login':
+ if (hash === '#login'){
       window.history.replaceState({}, 'login', '/');
       return showTemplate(hash);
-
-    case '#signIn':
+ }
+ if (hash === '#signIn'){
       window.history.replaceState({}, 'signIn', '/signIn');
       return showTemplate(hash);
-
-    case '#signUp':
+ }
+ if (hash === '#signUp'){
       window.history.replaceState({}, 'signUp', '/signUp');
       return showTemplate(hash);
   }
@@ -45,16 +44,15 @@ export const changeRouter = (hash) => {
 
 // se le da funcionalidad correcta a los btn de atras y adelante del navegador
 window.onpopstate = (hash) => {
-  switch (window.location.pathname) {
-    case '/':
+  if (window.location.pathname === '/') {
       hash = '#login';
       return showTemplate(hash);
-
-    case '/signIn':
+  }
+  if (window.location.pathname === '/signIn'){
       hash = '#signIn';
       return showTemplate(hash);
-
-    case '/signUp':
+  }
+  if (window.location.pathname === '/signUp'){
       hash = '#signUp';
       return showTemplate(hash);
   }

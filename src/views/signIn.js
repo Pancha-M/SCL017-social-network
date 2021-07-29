@@ -1,5 +1,7 @@
+import { signInGoogle } from '../main.js';
+
 export const signIn = () => {
-  const divContainerSignIn = document.createElement('div');
+  const containerViewSignIn = document.createElement('div');
 
   const viewSignIn = `<div class="containerLogin">
                             <div class="logo">
@@ -14,13 +16,18 @@ export const signIn = () => {
                             <div class="socialNetworkButton">
                                 <p>Iniciar sesión con:</p>
                                 <div class="icons">
-                               
+                                    <button class="googlebtn"  id="googlebtn">
+                                    <span class="iconify" id="googleButton" data-inline="false" data-icon="flat-color-icons:google" style="font-size: 35px;">
+                                    </span></button>
                                 </div>
                             </div>
                          </div>`;
-  divContainerSignIn.innerHTML = viewSignIn;
+containerViewSignIn.innerHTML = viewSignIn;
 
-  return divContainerSignIn;
+const googleBtn = containerViewSignIn.querySelector('.googlebtn');
+console.log(googleBtn);
+
+googleBtn.addEventListener('click', signInGoogle, false);
+
+  return containerViewSignIn;
 };
-
-// <button class="iconify" id="googleButton" data-inline="false" data-icon="flat-color-icons:google" style="font-size: 35px;"></button>

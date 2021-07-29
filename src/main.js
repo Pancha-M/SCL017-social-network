@@ -21,7 +21,7 @@ const init = () => {
 window.addEventListener('load', init);
 
 // Firebase
-let provider = new firebase.auth.GoogleAuthProvider();
+const provider = new firebase.auth.GoogleAuthProvider();
 
 // INICIAR SESION CON GOOGLE
 
@@ -48,5 +48,18 @@ export const signInGoogle = () => {
     // ...
     });
 };
-
+// REGISTRO DE USUARIO
+export const signUpEmailAndPassword = () => {
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+    // Signed in
+      const user = userCredential.user;
+    // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    // ..
+    });
+};
 
