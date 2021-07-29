@@ -1,9 +1,4 @@
-// let htmlCode = ''
-
-// htmlCode += `<p>HOLA</p>`
-
-// divRoot.innerHTML = htmlCode
-import { signInGoogle } from '../main.js';
+import firebaseLoginFunctions from '../firebaseLogin.js';
 
 export const login = () => {
   const containerViewLogin = document.createElement('div');
@@ -34,11 +29,9 @@ export const login = () => {
 containerViewLogin.innerHTML = viewLogin;
 
 const googleBtn = containerViewLogin.querySelector('.googlebtn');
-console.log(googleBtn);
-
-googleBtn.addEventListener('click',signInGoogle, false);
-
-
+googleBtn.addEventListener('click', () => {
+  firebaseLoginFunctions.signInGoogle()
+});
 
  return containerViewLogin;
  };

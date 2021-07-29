@@ -1,6 +1,8 @@
 import { login } from '../views/login.js';
 import { signIn } from '../views/signIn.js';
 import { signUp } from '../views/signUp.js';
+import { feed } from '../views/feed.js';
+
 
 // Se crean casos para que al presionar cada "boton", se reemplace el html dinamico de la pagina
 const showTemplate = (hash) => {
@@ -18,6 +20,10 @@ const showTemplate = (hash) => {
 
     case '#signUp':
       containerRoot.appendChild(signUp());
+      break;
+
+    case '#feed':
+        containerRoot.appendChild(feed());
       break;
 
     default:
@@ -40,6 +46,11 @@ export const changeRouter = (hash) => {
       window.history.replaceState({}, 'signUp', '/signUp');
       return showTemplate(hash);
   }
+
+  if (hash === '#feed'){
+    window.history.replaceState({}, 'feed', '/feed');
+    return showTemplate(hash);
+}
 };
 
 // se le da funcionalidad correcta a los btn de atras y adelante del navegador
