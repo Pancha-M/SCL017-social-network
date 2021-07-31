@@ -1,49 +1,42 @@
-*{
+/* *{
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
     text-decoration: none;
-}
-
+} */
 
 body{
     background-color: #FAF0EF;
 }
 
+/* .containerLogin{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+} */
 
-.formSignIn{
+.formRegister{
     display: flex;
     flex-direction: column;
     margin: 10px;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
 }
 
-.inputSignIn{
+input{
     margin: 3px;
     font-size: 14px;
-    background-color: #FAF0EF;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-    border-bottom: 1px dashed #2F3737;
-    border-radius: 0;
+    border: 2px solid #6ca6d9;
+    border-radius: 5px;
     Width: 236px;
     Height: 31px;
-    box-shadow: none;   
+    box-shadow: 0px 1px 3px 1px #bbbbbb
 }
 
-.passwordRecover{
-margin-left: 120px;
-margin-bottom: 31px;
-font-size: 12px;
-line-height: 14px;
-text-decoration-line: underline;
-color: #6FAAE4;
-
-}
-
-.enterButton{
+.registerButton{
     cursor: pointer;
     border-radius: 20px;
     border: none;
@@ -54,10 +47,10 @@ color: #6FAAE4;
     height: 35px;
     font-size: 16px;
     box-shadow: 0px 2px 5px 2px #bbbbbb;
-    }
-    .enterButton:hover{
+}
+
+    .registerButton:hover{
         background-color: #63bd9f;
         width: 172px;
         height: 37px;
     }
-

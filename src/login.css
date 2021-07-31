@@ -12,15 +12,16 @@ body{
 .containerLogin{
     display: flex;
     flex-direction: column;
-    height: 100vh;
     justify-content: center;
     align-content: center;
     align-items: center;
 }
 
-img{ 
+img{  
+    margin-top: 45px;  
     Width: 315px;
     Height: auto;
+
 }
 
 .about{
@@ -33,9 +34,10 @@ b{
     cursor: pointer;
 }
 
-.loginButtons{
+.loginElements{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
@@ -82,6 +84,13 @@ b{
     height: 42px;
 }
 
+.socialNetworkButton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 .icons{
     cursor: pointer;
     margin: 5px;
@@ -91,39 +100,71 @@ b{
     justify-content: space-around;
 }
 
+.googlebtn{
+    background-color: #FAF0EF;
+    border:none;
+}
+
+    .googlebtn:hover{
+        background-color: #fcd3cf;
+        border-radius: 5px;
+    }
+
 .iconify{
-    padding: 15px;
+    background-color: #FAF0EF;
+    padding: 5px;
+
 }
 
-.iconify:hover{
-    background-color: #fcd3cf;
-    border-radius: 5px;
-}
+    .iconify:hover{
+        background-color: #fcd3cf;
+        border-radius: 5px;
 
-/* @media (max-width: 1440px) {
+    }
 
-.containerLogin{
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
-}
 
-.loginButtons{
-    background-color: #fff;
-    width: 322px;
-    height: 418px;
+
+@media (min-width: 1366px) {
+
+    .containerLogin{
+        margin-top: 114px;
+        flex-direction: row;
+
+    }
+
+    img{    
+        Width: 500px;
+        Height: auto;
+    }
+
+    .loginElements{
+        background-color: #ffff;
+        width: 322px;
+        height: 418px;
     
+    }
+
+
+    .signInButton{
+        margin-top: 93px;
+        margin-bottom: 30px;
+    } 
+
+    .signUpButton{
+        margin-bottom: 39px;
+    }
+    .googlebtn{
+        background-color: #ffff;
+        border:none;
+    }
+    
+     
+    
+    .iconify{
+        background-color: #ffff;
+        padding: 5px;
+    
+    }
+
+
 }
-
-.signInButton{
-    margin-top: 93px;
-    margin-bottom: 30px;
-}
-
-.signUpButton{
-    margin-bottom: 39px;
-}
-
-
-
-} */

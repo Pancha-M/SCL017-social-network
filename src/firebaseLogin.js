@@ -32,7 +32,6 @@ const firebaseLoginFunctions = {
       });
     },
 
-
 // REGISTRO DE USUARIO
  signUpFunction: (password, email, username) => { 
 
@@ -43,10 +42,11 @@ const firebaseLoginFunctions = {
       user.updateProfile({
         displayName: username,
       })
-      }).then(() => {
+      })
+      .then(() => {
       window.location.assign('#feed');
       console.log(password, email, username);
-    })
+     })
       // ...
       .catch((error) => {
         const errorCode = error.code;
@@ -55,26 +55,28 @@ const firebaseLoginFunctions = {
    })
   },
 
- showUser: () => {
+  signInFunction: (email, password)=>{
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // Signed in
+        var user = userCredential.user;
+        // ...
+      })
+      .then(() => {
+        window.location.assign('#feed');
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+      });
 
-  const user = firebase.auth().currentUser;
-
-  if (user !== null) {
-  // The user object has basic properties such as display name, email, etc.
-  const displayName = user.displayName;
-  const email = user.email;
-  // const photoURL = user.photoURL;
-  // const emailVerified = user.emailVerified;
-
-  // The user's ID, unique to the Firebase project. Do NOT use
-  // this value to authenticate with your backend server, if
-  // you have one. Use User.getToken() instead.
-  const uid = user.uid;
-  console.log(displayName);
-  console.log(email);
   }
+
+
+
+//Datos almacenados en el inicio de sesion
+//PUEDEN SERVIR PARA EL PERFIL
  
-  },
 }
 
 
