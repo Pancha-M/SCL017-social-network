@@ -1,5 +1,5 @@
 # WomanBike
-(img logo)
+![Logo](./img/logoBike.png)
 
 ## Índice
 
