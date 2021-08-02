@@ -10,10 +10,10 @@ export const signUp = () => {
                         </div>
                         <div class="loginElements">
                           <div class="formRegister">
-                            <input type="text" class="inputName" id="inputName" placeholder="Ingresa nombre de usuaria">
-                            <input type="email" class="inputEmail" id="inputEmail" placeholder="Ingresa tu email">
-                            <input type="password" class="inputPass" id="inputPass" placeholder="Ingresa una contraseña">
-                            <input type="password" class="inputPassAgain" id="inputPassAgain" placeholder="Repetir contraseña">
+                            <input type="text" class="inputsignUp" id="inputName" placeholder="Ingresa nombre de usuaria">
+                            <input type="email" class="inputsignUp" id="inputEmail" placeholder="Ingresa tu email">
+                            <input type="password" class="inputsignUp" id="inputPass" placeholder="Ingresa una contraseña">
+                            <input type="password" class="inputsignUp" id="inputPassAgain" placeholder="Repetir contraseña">
                             <button class="createUserButton" id="createUserButton">Registrarme</button>
                           </div>
                           <div class="socialNetworkButton">
@@ -31,7 +31,7 @@ export const signUp = () => {
                       </div>`;
   containerViewSignUp.innerHTML = viewSignUp;
 
-  // Registro con email y contrasena
+  // Registro con email y contraseña
   const createUserButton = containerViewSignUp.querySelector('.createUserButton');
 
   createUserButton.addEventListener('click', () => {
@@ -49,7 +49,7 @@ export const signUp = () => {
 
       );
     } else {
-      alert('INGRESA BIEN LA HUEA');
+      alert('LA CONTRASEÑA NO COINCIDE, PORFAVOR REINTENTA');
     }
   });
 
