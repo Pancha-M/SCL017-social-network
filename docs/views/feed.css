@@ -16,6 +16,7 @@ background-color: #fff;
 .iconsNav{
     display: flex;
     align-items: baseline;
+    /* background-color: #fff; */
 }
 
 .homeIcon{
