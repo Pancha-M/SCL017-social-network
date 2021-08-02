@@ -9,14 +9,6 @@ body{
     background-color: #FAF0EF;
 }
 
-/* .containerLogin{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-} */
 
 .formRegister{
     display: flex;
@@ -26,7 +18,7 @@ body{
     align-items: center;
 }
 
-input{
+.inputsignUp{
     font-size: 14px;
     margin: 5px;
     background-color: #FAF0EF;
@@ -60,3 +52,13 @@ input{
         width: 172px;
         height: 37px;
     }
+
+@media (min-width: 1024px){
+
+    .inputsignUp{
+        margin: 10px;
+        height: 30px;
+        background-color: white;
+    }
+
+}
