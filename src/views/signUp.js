@@ -1,7 +1,5 @@
 import firebaseLoginFunctions from '../firebaseLogin.js';
 
-
-
 export const signUp = () => {
   const containerViewSignUp = document.createElement('div');
 
