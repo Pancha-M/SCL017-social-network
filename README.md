@@ -1,5 +1,5 @@
 # WomanBike
-![Logo](./img/logoBike.png)
+[![logoBike.png](https://i.postimg.cc/8CwKk7m6/logoBike.png)](https://postimg.cc/LqYBN679)
 
 ## Índice
 
@@ -32,7 +32,7 @@ Para comenzar definimos a quienes estaría orientado el producto:
 A continuación realizamos una encuesta a 30 potenciales usuarias que nos permitió recabar información acerca de sus necesidades e intereses y de acuerdo a estas pudimos definir las historias de usuario
 
 ####  Historia de usuario 1
-"Yo como usuaria ciclista necesito una app que me permita crear una cuenta para poder interactuar con otras mujeres ciclistas"
+[![historiauno.png](https://i.postimg.cc/RVDnm4tZ/historiauno.png)](https://postimg.cc/2Vn5FpTs)
 
 Criterios de aceptación: Las usuarias pueden ingresar a la app registrandose con su correo electronico y una contraseña o a través de su cuenta de google.
 ####  Historia de usuario 2
@@ -43,14 +43,13 @@ Criterios de aceptación: Las usuarias pueden ingresar a la app registrandose co
 
 Para diseñar los prototipos de baja fidelidad de pensó en los elementos que deberia contener la interfaz de la pagina de inicio y feed para que resulte cómoda e intuitiva para las usuarias
 
-    Prototipo de baja fidelidad
-(img)
+[![pb1.jpg](https://i.postimg.cc/sf02QKgn/pb1.jpg)](https://postimg.cc/dDrFg2dd)
 
-    Prototipo de baja fidelidad, contiene todos los elementos
-(img)
+Diseño de prototipo en baja fidelidad que contiene ya todos los elementos y el orden en que iran
+[![Protopo-Baja.jpg](https://i.postimg.cc/pL1Nkc37/Protopo-Baja.jpg)](https://postimg.cc/CRD6x7hH)
+
 Para crear el prototipo de alta fidelidad escogimos cuidadosamente una imagen que pudiera representar la pluralidad que queremos que tenga esta app y luego elegimos una paleta de colores que contuviera tonos suaves y mas oscuros para generar un contraste y que resulta atractivo y armonioso a la vista.
-
-    Prototipo de alta fidelidad
+[![PROTOTIPOS-H1.jpg](https://i.postimg.cc/vm20MKWs/PROTOTIPOS-H1.jpg)](https://postimg.cc/Lqft3NCC)
 
     
 
