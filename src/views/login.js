@@ -26,12 +26,12 @@ export const login = () => {
                         </div>
                      </div>`;
 
-containerViewLogin.innerHTML = viewLogin;
+  containerViewLogin.innerHTML = viewLogin;
 
-const googleBtn = containerViewLogin.querySelector('.googlebtn');
-googleBtn.addEventListener('click', () => {
-  firebaseLoginFunctions.signInGoogle()
-});
+  const googleBtn = containerViewLogin.querySelector('.googlebtn');
+  googleBtn.addEventListener('click', () => {
+    firebaseLoginFunctions.signInGoogle();
+  });
 
- return containerViewLogin;
- };
+  return containerViewLogin;
+};

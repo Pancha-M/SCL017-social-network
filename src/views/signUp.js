@@ -9,9 +9,6 @@ export const signUp = () => {
                          
                         </div>
                         <div class="loginElements">
-                          <div class="welcome">
-                            <p class="welcomeTittle">Bienvenida a la comunidad</p>
-                          </div>
                           <div class="formRegister">
                             <input type="text" class="inputName" id="inputName" placeholder="Ingresa nombre de usuaria">
                             <input type="email" class="inputEmail" id="inputEmail" placeholder="Ingresa tu email">
@@ -36,35 +33,31 @@ export const signUp = () => {
 
   // Registro con email y contrasena
   const createUserButton = containerViewSignUp.querySelector('.createUserButton');
-  
-  createUserButton.addEventListener('click', () => {
-  
-    const elementsSignUp = {
-    username: containerViewSignUp.querySelector('.inputName').value,
-    email: containerViewSignUp.querySelector('.inputEmail').value,
-    password: containerViewSignUp.querySelector('.inputPass').value,
-    confirmedPassword: containerViewSignUp.querySelector('.inputPassAgain').value,
-  }
-  if (elementsSignUp.password === elementsSignUp.confirmedPassword){
-    firebaseLoginFunctions.signUpFunction (
-      elementsSignUp.password,
-      elementsSignUp.email,
-      elementsSignUp.username
-      
-    );
-  }else{
-    alert("INGRESA BIEN LA HUEA")
-  }
 
+  createUserButton.addEventListener('click', () => {
+    const elementsSignUp = {
+      username: containerViewSignUp.querySelector('.inputName').value,
+      email: containerViewSignUp.querySelector('.inputEmail').value,
+      password: containerViewSignUp.querySelector('.inputPass').value,
+      confirmedPassword: containerViewSignUp.querySelector('.inputPassAgain').value,
+    };
+    if (elementsSignUp.password === elementsSignUp.confirmedPassword) {
+      firebaseLoginFunctions.signUpFunction(
+        elementsSignUp.password,
+        elementsSignUp.email,
+        elementsSignUp.username,
+
+      );
+    } else {
+      alert('INGRESA BIEN LA HUEA');
+    }
   });
 
   // Inicio sesion con google
   const googleBtn = containerViewSignUp.querySelector('.googlebtn');
   googleBtn.addEventListener('click', () => {
-    firebaseLoginFunctions.signInGoogle()
+    firebaseLoginFunctions.signInGoogle();
   });
 
-    return containerViewSignUp;
-
+  return containerViewSignUp;
 };
-
