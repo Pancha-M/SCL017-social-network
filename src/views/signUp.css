@@ -1,9 +1,9 @@
-/* *{
-    margin: 0;
+*{
+    margin-top: 0px;
     padding: 0;
     font-family: 'Roboto', sans-serif;
     text-decoration: none;
-} */
+} 
 
 body{
     background-color: #FAF0EF;
@@ -27,29 +27,35 @@ body{
 }
 
 input{
-    margin: 3px;
     font-size: 14px;
-    border: 2px solid #6ca6d9;
-    border-radius: 5px;
+    margin: 5px;
+    background-color: #FAF0EF;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px dashed #2F3737;
     Width: 236px;
-    Height: 31px;
-    box-shadow: 0px 1px 3px 1px #bbbbbb
+    Height: 25px;
 }
 
-.registerButton{
+.createUserButton{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    margin: 5px;
     cursor: pointer;
     border-radius: 20px;
     border: none;
-    margin: 5px;
+    padding-top: 5px;
     background-color: #49b18e;
     color: #FAF0EF;
     width: 170px;
-    height: 35px;
+    height: 30px;
     font-size: 16px;
     box-shadow: 0px 2px 5px 2px #bbbbbb;
 }
 
-    .registerButton:hover{
+    .createUserButton:hover{
         background-color: #63bd9f;
         width: 172px;
         height: 37px;

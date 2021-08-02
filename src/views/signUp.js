@@ -9,9 +9,6 @@ export const signUp = () => {
                          
                         </div>
                         <div class="loginElements">
-                          <div class="welcome">
-                            <p class="welcomeTittle">Bienvenida a la comunidad</p>
-                          </div>
                           <div class="formRegister">
                             <input type="text" class="inputName" id="inputName" placeholder="Ingresa nombre de usuaria">
                             <input type="email" class="inputEmail" id="inputEmail" placeholder="Ingresa tu email">
