@@ -5,7 +5,7 @@ export const login = () => {
 
   const viewLogin = `<div class="containerLogin">
                             <div class="logo">
-                                <img src="../img/logoBike.png" alt="logo de la aplicación">
+                                <img src="../../src/img/logoBike.png" alt="logo de la aplicación">
                             </div>
                         <div class="loginElements">
                             <div class="typeButton" id="typeButton">
