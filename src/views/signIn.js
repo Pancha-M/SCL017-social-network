@@ -28,23 +28,21 @@ export const signIn = () => {
                               </div>
                           </div>
                        </div>`;
-containerViewSignIn.innerHTML = viewSignIn;
+  containerViewSignIn.innerHTML = viewSignIn;
 
-//Iniciar sesion con email y constrana ya registrada
-const signInEmailPass = containerViewSignIn.querySelector('#signInEmailPass');
+  // Iniciar sesion con email y constrana ya registrada
+  const signInEmailPass = containerViewSignIn.querySelector('#signInEmailPass');
 
-signInEmailPass.addEventListener('click', () => {
+  signInEmailPass.addEventListener('click', () => {
+    const email = containerViewSignIn.querySelector('#inputEmail').value;
+    const password = containerViewSignIn.querySelector('#inputPass').value;
+    firebaseLoginFunctions.signInFunction(email, password);
+  });
 
-const email = containerViewSignIn.querySelector('#inputEmail').value;
-const password = containerViewSignIn.querySelector('#inputPass').value;
-firebaseLoginFunctions.signInFunction(email, password);
-});
-
-const googleBtn = containerViewSignIn.querySelector('#googlebtn');
-googleBtn.addEventListener('click', () => {
-  firebaseLoginFunctions.signInGoogle()
-});
-
+  const googleBtn = containerViewSignIn.querySelector('#googlebtn');
+  googleBtn.addEventListener('click', () => {
+    firebaseLoginFunctions.signInGoogle();
+  });
 
   return containerViewSignIn;
 };
