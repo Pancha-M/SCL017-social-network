@@ -32,14 +32,14 @@ export const signUp = () => {
   containerViewSignUp.innerHTML = viewSignUp;
 
   // Registro con email y contraseña
-  const createUserButton = containerViewSignUp.querySelector('.createUserButton');
+  const createUserButton = containerViewSignUp.querySelector('#createUserButton');
 
   createUserButton.addEventListener('click', () => {
     const elementsSignUp = {
-      username: containerViewSignUp.querySelector('.inputName').value,
-      email: containerViewSignUp.querySelector('.inputEmail').value,
-      password: containerViewSignUp.querySelector('.inputPass').value,
-      confirmedPassword: containerViewSignUp.querySelector('.inputPassAgain').value,
+      username: containerViewSignUp.querySelector('#inputName').value,
+      email: containerViewSignUp.querySelector('#inputEmail').value,
+      password: containerViewSignUp.querySelector('#inputPass').value,
+      confirmedPassword: containerViewSignUp.querySelector('#inputPassAgain').value,
     };
     if (elementsSignUp.password === elementsSignUp.confirmedPassword) {
       firebaseLoginFunctions.signUpFunction(

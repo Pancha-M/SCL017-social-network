@@ -36,15 +36,15 @@ const firebaseLoginFunctions = {
   signUpFunction: (password, email, username) => {
     firebase.auth().createUserWithEmailAndPassword(email, password)
     // Signed in
-      .then(() => {
-        const user = firebase.auth().currentUser;
+      .then((user) => {
+        console.log("usuario" + user)
         user.updateProfile({
           displayName: username,
         });
+        user.sendEmailVerification();
       })
       .then(() => {
-        window.location.assign('#feed');
-        console.log(password, email, username);
+      window.location.assign('#feed');
       })
     // ...
       .catch((error) => {
@@ -63,7 +63,11 @@ const firebaseLoginFunctions = {
         // ...
       })
       .then(() => {
+        if (email === true){
         window.location.assign('#feed');
+        }
+        else{ console.log("verifica el email po csm")
+      }
       })
       .catch((error) => {
         const errorCode = error.code;
