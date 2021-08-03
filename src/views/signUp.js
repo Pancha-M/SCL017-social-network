@@ -36,10 +36,10 @@ export const signUp = () => {
 
   createUserButton.addEventListener('click', () => {
     const elementsSignUp = {
-      username: containerViewSignUp.querySelector('.inputName').value,
-      email: containerViewSignUp.querySelector('.inputEmail').value,
-      password: containerViewSignUp.querySelector('.inputPass').value,
-      confirmedPassword: containerViewSignUp.querySelector('.inputPassAgain').value,
+      username: containerViewSignUp.querySelector('#inputName').value,
+      email: containerViewSignUp.querySelector('#inputEmail').value,
+      password: containerViewSignUp.querySelector('#inputPass').value,
+      confirmedPassword: containerViewSignUp.querySelector('#inputPassAgain').value,
     };
     if (elementsSignUp.password === elementsSignUp.confirmedPassword) {
       firebaseLoginFunctions.signUpFunction(
