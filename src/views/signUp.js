@@ -24,6 +24,8 @@ export const signUp = () => {
                                 </span></button>
                               </div>
                           </div>
+                          <div class="modal"id="containerModal">
+                          </div>
                           <footer="aboutContainer">
                               <p class="about">Mas info sobre nuestra comunidad <b>aquí</b></p>
                           </footer> 
@@ -58,6 +60,15 @@ export const signUp = () => {
   googleBtn.addEventListener('click', () => {
     firebaseLoginFunctions.signInGoogle();
   });
+
+
+  //VACIAR INPUT AL CERRAR MODAL
+  const inputVacio = () => {
+    document.querySelector.querySelector('#inputName').value = '';
+    containerViewSignUp.querySelector('#inputEmail').value = '';
+    containerViewSignUp.querySelector('#inputPass').value = '';
+    containerViewSignUp.querySelector('#inputPassAgain').value = '';
+  };
 
   return containerViewSignUp;
 };
