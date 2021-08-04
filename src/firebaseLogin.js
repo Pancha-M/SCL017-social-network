@@ -38,13 +38,14 @@ const firebaseLoginFunctions = {
     // Signed in
       .then(() => {
         const user = firebase.auth().currentUser;
+        console.log("username " + username);
         user.updateProfile({
           displayName: username,
-        });
+        })
+      user.sendEmailVerification();
       })
       .then(() => {
-        window.location.assign('#feed');
-        console.log(password, email, username);
+      window.location.assign('#signIn');
       })
     // ...
       .catch((error) => {
@@ -59,11 +60,13 @@ const firebaseLoginFunctions = {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
-        // ...
-      })
-      .then(() => {
-        window.location.assign('#feed');
+        const user = userCredential.user
+        if (user && user.emailVerified === true){
+          window.location.assign('#feed')
+        } 
+        else { 
+         alert("VERIFICA EL EMAIL")
+        }
       })
       .catch((error) => {
         const errorCode = error.code;

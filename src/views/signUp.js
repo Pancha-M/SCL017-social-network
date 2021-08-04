@@ -32,7 +32,7 @@ export const signUp = () => {
   containerViewSignUp.innerHTML = viewSignUp;
 
   // Registro con email y contraseña
-  const createUserButton = containerViewSignUp.querySelector('.createUserButton');
+  const createUserButton = containerViewSignUp.querySelector('#createUserButton');
 
   createUserButton.addEventListener('click', () => {
     const elementsSignUp = {
