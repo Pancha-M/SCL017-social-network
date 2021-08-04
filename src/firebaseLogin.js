@@ -54,6 +54,7 @@ const firebaseLoginFunctions = {
       });
   },
 
+  // Inicio de sesion con constrasena e email
   signInFunction: (email, password) => {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
@@ -69,9 +70,6 @@ const firebaseLoginFunctions = {
         const errorMessage = error.message;
       });
   },
-
-  // Datos almacenados en el inicio de sesion
-  // PUEDEN SERVIR PARA EL PERFIL
 
 };
 

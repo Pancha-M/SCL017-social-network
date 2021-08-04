@@ -16,6 +16,10 @@ background-color: #fff;
 .iconsNav{
     display: flex;
     align-items: baseline;
+<<<<<<< HEAD
+=======
+    /* background-color: #fff; */
+>>>>>>> upstream/master
 }
 
 .homeIcon{
