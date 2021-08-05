@@ -1,4 +1,4 @@
-import { errorEmailExist, errorPassFunction } from './erroresSignUp.js';
+import { errorInvalidEmail, errorPassFunction } from './erroresSignUp.js';
 
 const firebaseLoginFunctions = {
   // ACA DENTRO IRAN LAS FUNCIONESDDE FIREBASE
@@ -55,12 +55,15 @@ const firebaseLoginFunctions = {
         if (errorCode === 'auth/weak-password') {
           console.log('contrasena muy corta');
           document.getElementById('containerModal').appendChild(errorPassFunction());
+          const modal = document.getElementById('containerModal');
+          modal.style.display = 'block';
         }
         if (errorCode === 'auth/invalid-email') {
           console.log('Ingresa un email valido');
-          document.getElementById('containerModal').appendChild(errorEmailExist());
+          document.getElementById('containerModal').appendChild(errorInvalidEmail());
+          const modal = document.getElementById('containerModal');
+          modal.style.display = 'block';
         }
-        // ..
       });
   },
 

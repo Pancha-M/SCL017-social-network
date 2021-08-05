@@ -5,7 +5,7 @@ export const signIn = () => {
 
   const viewSignIn = `<div class="containerLogin">
                             <div class="logo">
-                              <img src="logoBike.png" alt="logo de la aplicación">
+                                <img src="http://imgfz.com/i/nWLwBNi.png" alt="logo de la aplicación">
                             </div>
                           <div class="loginElements">
                           <p class="signInTitle">Ingresa tu mail y contraseña</p>

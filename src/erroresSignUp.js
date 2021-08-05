@@ -1,7 +1,9 @@
+import { clearEmailInput, clearPassInputs } from './views/signUp.js';
+
 export const errorPassFunction = () => {
   const containerErrorPass = document.createElement('div');
 
-  const errorPass = `<div class="feed">
+  const errorPass = `<div class="msgError">
                             <p>Tu contraseña debe tener al menos 6 carácteres, intenta nuevamente</p>
                             <button class="buttonModal" id="buttonErrorPass">Aceptar</button>
                         </div>`;
@@ -11,25 +13,32 @@ export const errorPassFunction = () => {
   containerErrorPass.querySelector('.buttonModal').addEventListener('click', () => {
     containerErrorPass.style.display = 'none';
     containerErrorPass.innerHTML = '';
+    const modal = document.getElementById('containerModal');
+    modal.style.display = 'none';
+    clearPassInputs();
   });
 
   return containerErrorPass;
 };
 
-export const errorEmailExist = () => {
-  const containerEmailExist = document.createElement('div');
+export const errorInvalidEmail = () => {
+  const containerInvalidEmail = document.createElement('div');
 
-  const EmailExist = `<div class="feed">
-                            <p>Este correo electrónico ya está asociado a una cuenta</p>
+  const InvalidEmail = `<div class="msgError">
+                            <p>Ingresa un correo electrónico válido</p>
                             <button class="buttonModal" id="buttonErrorPass">Aceptar</button>
                         </div>`;
 
-  containerEmailExist.innerHTML = EmailExist;
+  containerInvalidEmail.innerHTML = InvalidEmail;
 
-  // containerEmailExist.querySelector('.buttonModal').addEventListener('click', () => {
-  //   containerEmailExist.style.display = 'none';
-  //   containerEmailExist.innerHTML = '';
-  // });
+  containerInvalidEmail.querySelector('.buttonModal').addEventListener('click', () => {
+    containerInvalidEmail.style.display = 'none';
+    containerInvalidEmail.innerHTML = '';
+    const modal = document.getElementById('containerModal');
+    modal.style.display = 'none';
+    clearEmailInput();
+    clearPassInputs();
+  });
 
-  return containerEmailExist;
+  return containerInvalidEmail;
 };
