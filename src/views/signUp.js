@@ -4,6 +4,8 @@ export const signUp = () => {
   const containerViewSignUp = document.createElement('div');
 
   const viewSignUp = `<div class="containerLogin">
+                        <div class="modal"id="containerModal">
+                        </div>
                         <div class="logo">
                           <img src="logoBike.png" alt="logo de la aplicación">
                          
@@ -24,6 +26,7 @@ export const signUp = () => {
                                 </span></button>
                               </div>
                           </div>
+                         
                           <footer="aboutContainer">
                               <p class="about">Mas info sobre nuestra comunidad <b>aquí</b></p>
                           </footer> 
@@ -60,4 +63,13 @@ export const signUp = () => {
   });
 
   return containerViewSignUp;
+};
+
+export const clearPassInputs = () => {
+  document.getElementById('inputPass').value = '';
+  document.getElementById('inputPassAgain').value = '';
+};
+
+export const clearEmailInput = () => {
+  document.getElementById('inputEmail').value = '';
 };

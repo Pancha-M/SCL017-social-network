@@ -1,6 +1,7 @@
 import { login } from './views/login.js';
 import { myFunction } from './lib/index.js';
 import { changeRouter } from './lib/router.js';
+import { errorPassFunction } from './erroresSignUp.js';
 
 const init = () => {
   document.getElementById('root').appendChild(login());

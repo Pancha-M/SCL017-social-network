@@ -1,3 +1,5 @@
+import { errorInvalidEmail, errorPassFunction } from './erroresSignUp.js';
+
 const firebaseLoginFunctions = {
   // ACA DENTRO IRAN LAS FUNCIONESDDE FIREBASE
 
@@ -38,7 +40,7 @@ const firebaseLoginFunctions = {
     // Signed in
       .then(() => {
         const user = firebase.auth().currentUser;
-        console.log('username' + username);
+        console.log(`username${username}`);
         user.updateProfile({
           displayName: username,
         });
@@ -50,8 +52,18 @@ const firebaseLoginFunctions = {
     // ...
       .catch((error) => {
         const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
+        if (errorCode === 'auth/weak-password') {
+          console.log('contrasena muy corta');
+          document.getElementById('containerModal').appendChild(errorPassFunction());
+          const modal = document.getElementById('containerModal');
+          modal.style.display = 'block';
+        }
+        if (errorCode === 'auth/invalid-email') {
+          console.log('Ingresa un email valido');
+          document.getElementById('containerModal').appendChild(errorInvalidEmail());
+          const modal = document.getElementById('containerModal');
+          modal.style.display = 'block';
+        }
       });
   },
 
