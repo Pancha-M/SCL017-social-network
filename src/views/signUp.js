@@ -61,14 +61,16 @@ export const signUp = () => {
     firebaseLoginFunctions.signInGoogle();
   });
 
-
-  //VACIAR INPUT AL CERRAR MODAL
-  const inputVacio = () => {
-    document.querySelector.querySelector('#inputName').value = '';
-    containerViewSignUp.querySelector('#inputEmail').value = '';
-    containerViewSignUp.querySelector('#inputPass').value = '';
-    containerViewSignUp.querySelector('#inputPassAgain').value = '';
-  };
+  // VACIAR INPUT AL CERRAR MODAL
 
   return containerViewSignUp;
+};
+
+export const clearPassInputs = () => {
+  document.getElementById('inputPass').value = '';
+  document.getElementById('inputPassAgain').value = '';
+};
+
+export const clearEmailInput = () => {
+  document.getElementById('inputEmail').value = '';
 };

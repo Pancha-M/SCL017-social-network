@@ -1,3 +1,5 @@
+import { clearEmailInput, clearPassInputs } from './views/signUp.js';
+
 export const errorPassFunction = () => {
   const containerErrorPass = document.createElement('div');
 
@@ -11,25 +13,28 @@ export const errorPassFunction = () => {
   containerErrorPass.querySelector('.buttonModal').addEventListener('click', () => {
     containerErrorPass.style.display = 'none';
     containerErrorPass.innerHTML = '';
+    clearPassInputs();
   });
 
   return containerErrorPass;
 };
 
-export const errorEmailExist = () => {
-  const containerEmailExist = document.createElement('div');
+export const errorInvalidEmail = () => {
+  const containerInvalidEmail = document.createElement('div');
 
-  const EmailExist = `<div class="feed">
-                            <p>Este correo electrónico ya está asociado a una cuenta</p>
+  const InvalidEmail = `<div class="feed">
+                            <p>Ingresa un correo electrónico válido</p>
                             <button class="buttonModal" id="buttonErrorPass">Aceptar</button>
                         </div>`;
 
-  containerEmailExist.innerHTML = EmailExist;
+  containerInvalidEmail.innerHTML = InvalidEmail;
 
-  // containerEmailExist.querySelector('.buttonModal').addEventListener('click', () => {
-  //   containerEmailExist.style.display = 'none';
-  //   containerEmailExist.innerHTML = '';
-  // });
+  containerInvalidEmail.querySelector('.buttonModal').addEventListener('click', () => {
+    containerInvalidEmail.style.display = 'none';
+    containerInvalidEmail.innerHTML = '';
+    clearEmailInput();
+    clearPassInputs();
+  });
 
-  return containerEmailExist;
+  return containerInvalidEmail;
 };
