@@ -1,15 +1,16 @@
 nav {
 display: flex;
-align-items: baseline;
-justify-content: space-around;
-background-color: #fff; 
-
+align-items: center;
+background-color: #fff;
+flex-direction: row;
+align-content: stretch;
+justify-content: space-between;
+box-shadow: 0px 2px 5px 2px #bbbbbb;;
 }
 
 .womanbike{
+    margin: 10px;
     color:rgba(160, 86, 140, 1);
-    Font-family: Roboto;
-    Font-style: Bold;
     Font-size: 22px;
 }
 
@@ -21,25 +22,88 @@ background-color: #fff;
 .homeIcon{
     border: none;
     background-color: #fff;
-    
+    color: #6FAAE4; 
+    font-size: 24px;
 }
 
 .searchIcon{
     border: none;
     background-color: #fff;
+    color: #6FAAE4; 
+    font-size: 24px;
 }
 
 .profileIcon{
     border: none;
     background-color: #fff;
+    color: #6FAAE4; 
+    font-size: 24px;
 }
 
 .menuIcon{
     border: none;
     background-color: #fff;
+    color: #6FAAE4; 
+    font-size: 24px;
 }
 
 .iconify{
     background-color: #fff;
     border: none;
+}
+
+main{
+    display: grid;
+    margin: 20px;
+    justify-items: center;
+}
+
+.postUserContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 12px;
+    Width: 90%;
+    Height: 40%;
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: 0px 2px 5px 2px #bbbbbb;
+    margin-top: 5px;
+}
+
+.imgUser{
+    width: 20%;
+}
+
+.inputPost{
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(243, 243, 243, 1);
+    color: rgba(100, 0, 73, 1);
+    width: 97%;
+    height: 40%;
+    margin-top: 5px;
+    padding: 4px;
+    font-size: 11px;
+}
+.inputPost::placeholder {
+    padding: 5px;
+    color: rgba(120, 0, 88, 0.55);
+    font-size: 10px;
+  }
+
+.buttonPost{
+    cursor: pointer;
+    border: none;
+    width: 55px;
+    height: 12px;
+    color: white;
+    background-color: #49b18e;
+    font-size: 8px;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0px 1px 3px 1px #bbbbbb;
+    margin-top: 5px;
+    margin-left: 1px;
 }
