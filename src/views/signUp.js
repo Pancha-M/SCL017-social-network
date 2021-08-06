@@ -7,7 +7,7 @@ export const signUp = () => {
                         <div class="modal"id="containerModal">
                         </div>
                         <div class="logo">
-                          <img src="logoBike.png" alt="logo de la aplicación">
+                          <img class="logoWM" src="logoBike.png" alt="logo de la aplicación">
                          
                         </div>
                         <div class="loginElements">
