@@ -54,7 +54,10 @@ const firebaseLoginFunctions = {
       });
   },
 
+<<<<<<< HEAD
+=======
   //Inicio de sesion con constrasena e email
+>>>>>>> upstream/master
   signInFunction: (email, password) => {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
@@ -71,6 +74,11 @@ const firebaseLoginFunctions = {
       });
   },
 
+<<<<<<< HEAD
+  // Datos almacenados en el inicio de sesion
+  // PUEDEN SERVIR PARA EL PERFIL
+=======
+>>>>>>> upstream/master
 
 };
 

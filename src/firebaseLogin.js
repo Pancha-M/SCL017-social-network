@@ -1,4 +1,4 @@
-import { errorInvalidEmail, errorPassFunction } from './erroresSignUp.js';
+import { errorInvalidEmail, errorPassFunction, errorVerifiedEmail, sendMsgEmailVerified } from './erroresSignUp.js';
 
 const firebaseLoginFunctions = {
   // ACA DENTRO IRAN LAS FUNCIONESDDE FIREBASE
@@ -48,6 +48,9 @@ const firebaseLoginFunctions = {
       })
       .then(() => {
         window.location.assign('#signIn');
+        document.getElementById('containerModal').appendChild(sendMsgEmailVerified());
+        const modal = document.getElementById('containerModal');
+        modal.style.display = 'block';
       })
     // ...
       .catch((error) => {
@@ -55,12 +58,15 @@ const firebaseLoginFunctions = {
         if (errorCode === 'auth/weak-password') {
           console.log('contrasena muy corta');
           document.getElementById('containerModal').appendChild(errorPassFunction());
+          const modal = document.getElementById('containerModal');
+          modal.style.display = 'block';
         }
         if (errorCode === 'auth/invalid-email') {
           console.log('Ingresa un email valido');
           document.getElementById('containerModal').appendChild(errorInvalidEmail());
+          const modal = document.getElementById('containerModal');
+          modal.style.display = 'block';
         }
-        // ..
       });
   },
 
@@ -73,7 +79,10 @@ const firebaseLoginFunctions = {
         if (user && user.emailVerified === true) {
           window.location.assign('#feed');
         } else {
-          alert('VERIFICA EL EMAIL');
+          console.log('Verificar email');
+          document.getElementById('containerModal').appendChild(errorVerifiedEmail());
+          const modal = document.getElementById('containerModal');
+          modal.style.display = 'block';
         }
       })
       .catch((error) => {
