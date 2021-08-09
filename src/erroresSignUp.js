@@ -60,7 +60,7 @@ export const sendMsgEmailVerified = () => {
     containerMsgEmailVerified.innerHTML = '';
     const modal = document.getElementById('containerModal');
     modal.style.display = 'none';
-    document.getElementById('inputEmail').value = '';
+    window.location.assign('#signIn');
   });
 
   return containerMsgEmailVerified;

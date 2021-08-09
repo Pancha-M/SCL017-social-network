@@ -1,4 +1,6 @@
-import { errorInvalidEmail, errorPassFunction, errorVerifiedEmail, sendMsgEmailVerified } from './erroresSignUp.js';
+import {
+  errorInvalidEmail, errorPassFunction, errorVerifiedEmail, sendMsgEmailVerified,
+} from './erroresSignUp.js';
 
 const firebaseLoginFunctions = {
   // ACA DENTRO IRAN LAS FUNCIONESDDE FIREBASE
@@ -44,14 +46,23 @@ const firebaseLoginFunctions = {
         user.updateProfile({
           displayName: username,
         });
-        user.sendEmailVerification();
+        const db = firebase.firestore();
+        db.collection('profiles').add({
+          userName: username,
+          emailUser: email,
+        })
+          .then((docUser) => {
+            console.log('Document written with ID: ', docUser.id);
+            user.sendEmailVerification();
+            document.getElementById('containerModal').appendChild(sendMsgEmailVerified());
+            const modal = document.getElementById('containerModal');
+            modal.style.display = 'block';
+          })
+          .catch((error) => {
+            console.error('Error adding document: ', error);
+          });
       })
-      .then(() => {
-        window.location.assign('#signIn');
-        document.getElementById('containerModal').appendChild(sendMsgEmailVerified());
-        const modal = document.getElementById('containerModal');
-        modal.style.display = 'block';
-      })
+
     // ...
       .catch((error) => {
         const errorCode = error.code;

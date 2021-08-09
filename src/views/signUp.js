@@ -51,6 +51,7 @@ export const signUp = () => {
         elementsSignUp.username,
 
       );
+      
     } else {
       alert('LA CONTRASEÑA NO COINCIDE, PORFAVOR REINTENTA');
     }

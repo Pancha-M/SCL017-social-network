@@ -4,7 +4,6 @@ export const signIn = () => {
   const containerViewSignIn = document.createElement('div');
 
   const viewSignIn = `<div class="containerLogin">
-                            <div class="modal"id="containerModal"></div>
                             <div class="logo">
                               <img class="logoWM" src="logoBike.png" alt="logo de la aplicación">
                             </div>
