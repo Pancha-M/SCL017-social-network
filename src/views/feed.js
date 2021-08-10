@@ -1,6 +1,6 @@
 // import firebaseLoginFunctions from '../firebaseLogin.js';
 
-import functionsPost from '../fireStorePost.js';
+// import functionsPost from '../fireStorePost.js';
 
 export const feed = () => {
   const containerViewFeed = document.createElement('div');
@@ -34,6 +34,7 @@ export const feed = () => {
       <textarea class="inputPost" id="inputPost" placeholder="Escribe tu comentario aquí..." cols="30" rows="10"></textarea>
       <button class="buttonPost" id="buttonPost">Comentar</button>
     </div>
+    <div class = postUserContainer id=postContainer></div>
   </main>      
 </div>`;
   containerViewFeed.innerHTML = viewFeed;
@@ -41,8 +42,6 @@ export const feed = () => {
   //   window.addEventListener("load", () => {
   //     firebaseLoginFunctions.showUser;
   //   });
-  const buttonPost = containerViewFeed.querySelector('#buttonPost');
 
-  buttonPost.addEventListener('click', functionsPost.savePost);
   return containerViewFeed;
 };
