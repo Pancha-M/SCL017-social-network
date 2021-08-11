@@ -107,3 +107,9 @@ main{
     margin-top: 5px;
     margin-left: 1px;
 }
+
+.post{
+    background-color: teal;
+    border-color: black;
+    margin: 15px;
+}

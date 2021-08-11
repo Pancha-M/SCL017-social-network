@@ -1,6 +1,4 @@
-// import firebaseLoginFunctions from '../firebaseLogin.js';
-
-// import functionsPost from '../fireStorePost.js';
+import postFunctions from '../fireStorePost.js';
 
 export const feed = () => {
   const containerViewFeed = document.createElement('div');
@@ -31,17 +29,82 @@ export const feed = () => {
         <img class="imgUser" src="" alt="FotoPerfilUsuaria">
         <div class="nameUser"></div>
       </div>
-      <textarea class="inputPost" id="inputPost" placeholder="Escribe tu comentario aquí..." cols="30" rows="10"></textarea>
+      <form id="formPost" >
+      <input class="inputPost" id="inputPost" placeholder="Escribe tu comentario aquí..." cols="30" rows="10"></textarea>
       <button class="buttonPost" id="buttonPost">Comentar</button>
+      </form>
     </div>
-    <div class = postUserContainer id=postContainer></div>
+    <div id="postContainer"></div>
   </main>      
 </div>`;
   containerViewFeed.innerHTML = viewFeed;
 
+  const formPost = containerViewFeed.querySelector('#formPost');
+  formPost.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const post = containerViewFeed.querySelector('#inputPost').value;
+    console.log(`soy el input ${post}`);
+    console.log(`Soy el boton${formPost}`);
+    postFunctions.savePost(post);
+    formPost.reset();
+
+    const db = firebase.firestore();
+    const coleccionTextPost = db.collection('textPost');
+    console.log(coleccionTextPost);
+    coleccionTextPost.get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        const docData = doc.data();
+        console.log(docData);
+        // const viewPost = () => {
+        const postContainer = containerViewFeed.querySelector('#postContainer');
+        postContainer.innerHTML += `<div class="post">
+                                      <p>${docData.user}</p>
+                                      <p>${docData.post}</p>
+                                      <p>${docData.date}</p>
+                                    </div>`;
+        // };
+      });
+    });
+  });
+
   //   window.addEventListener("load", () => {
   //     firebaseLoginFunctions.showUser;
   //   });
+
+  // const db = firebase.firestore();
+  // const coleccionTextPost = db.collection('textPost');
+  // console.log(coleccionTextPost);
+  // coleccionTextPost.get().then(querySnapshot=>{
+
+  //   querySnapshot.forEach(doc=>{
+  //     console.log(viewPost(doc));
+  //   })  ``
+
+  // })
+
+  // const viewPost = () => {
+  //   const containerPost = containerViewFeed.querySelector('#containerPost');
+  //   containerPost.innerHTML += `<p>${doc.data()}</p>`;
+
+  // }
+
+  // const postContainer = containerViewFeed.querySelector('#postContainer');
+  // const onGetPost = (callback) => db.collection('textPost').onSnapshot(callback);
+
+  // window.addEventListener('DOMContentLoaded', async (e) => {
+  //   onGetPost((querySnapshot) => {
+  //     // postContainer.innerHTML = '';
+  //     querySnapshot.forEach((doc) => {
+  //       console.log(doc.data());
+
+  //       const postData = doc.data();
+
+  //       postContainer.innerHTML += `<div class = post>
+  //                                    <h5>${postData.textPost}</h5>
+  //                                      </div>`;
+  //     });
+  //   });
+  // });
 
   return containerViewFeed;
 };
