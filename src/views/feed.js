@@ -39,6 +39,15 @@ export const feed = () => {
 </div>`;
   containerViewFeed.innerHTML = viewFeed;
 
+  // const postContainer = containerViewFeed.querySelector('#postContainer');
+  // const onGetPost = (callback) => db.collection('textPost').onSnapshot(callback);
+
+  // window.addEventListener('DOMContentLoaded', async (e) => {
+  //   onGetPost((querySnapshot) => {
+  //     // postContainer.innerHTML = '';
+  //     querySnapshot.forEach((doc) => {
+  //       console.log(doc.data());
+
   const formPost = containerViewFeed.querySelector('#formPost');
   formPost.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -47,34 +56,25 @@ export const feed = () => {
     console.log(`Soy el boton${formPost}`);
     postFunctions.savePost(post);
     formPost.reset();
-
-    const db = firebase.firestore();
-    const coleccionTextPost = db.collection('textPost');
-    console.log(coleccionTextPost);
-    coleccionTextPost.get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        const docData = doc.data();
-        console.log(docData);
-        // const viewPost = () => {
-        const postContainer = containerViewFeed.querySelector('#postContainer');
-        postContainer.innerHTML += `<div class="post">
-                                      <p>${docData.user}</p>
-                                      <p>${docData.post}</p>
-                                      <p>${docData.date}</p>
-                                    </div>`;
-        // };
-      });
-    });
   });
 
-  //   window.addEventListener("load", () => {
-  //     firebaseLoginFunctions.showUser;
-  //   });
+ export const viewPost = (docData) => {
+    const postContainer = containerViewFeed.querySelector('#postContainer');
+    postContainer.innerHTML += `<div class="post">
+                                    <p>${docData.user}</p>
+                                    <p>${docData.post}</p>
+                                    <p>${docData.date}</p>
+                                  </div>`;
+  };
+
+  // window.addEventListener("load", () => {
+  // firebaseLoginFunctions.showUser;
+  // });
 
   // const db = firebase.firestore();
   // const coleccionTextPost = db.collection('textPost');
   // console.log(coleccionTextPost);
-  // coleccionTextPost.get().then(querySnapshot=>{
+  // coleccionTextPost.get().then(querySnap shot=>{
 
   //   querySnapshot.forEach(doc=>{
   //     console.log(viewPost(doc));
