@@ -11,6 +11,11 @@ const postFunctions = {
     });
   },
 
+  feedUpdate: (callback) => {
+    const db = firebase.firestore();
+    db.collection('textPost').onSnapshot(callback);
+  },
+
 };
 
 export default postFunctions;

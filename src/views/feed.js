@@ -34,19 +34,10 @@ export const feed = () => {
       <button class="buttonPost" id="buttonPost">Comentar</button>
       </form>
     </div>
-    <div id="postContainer"></div>
+    <div class="postContainer" id="postContainer"></div>
   </main>      
 </div>`;
   containerViewFeed.innerHTML = viewFeed;
-
-  // const postContainer = containerViewFeed.querySelector('#postContainer');
-  // const onGetPost = (callback) => db.collection('textPost').onSnapshot(callback);
-
-  // window.addEventListener('DOMContentLoaded', async (e) => {
-  //   onGetPost((querySnapshot) => {
-  //     // postContainer.innerHTML = '';
-  //     querySnapshot.forEach((doc) => {
-  //       console.log(doc.data());
 
   const formPost = containerViewFeed.querySelector('#formPost');
   formPost.addEventListener('submit', async (e) => {
@@ -58,23 +49,31 @@ export const feed = () => {
     formPost.reset();
   });
 
- export const viewPost = (docData) => {
-    const postContainer = containerViewFeed.querySelector('#postContainer');
-    postContainer.innerHTML += `<div class="post">
-                                    <p>${docData.user}</p>
-                                    <p>${docData.post}</p>
-                                    <p>${docData.date}</p>
-                                  </div>`;
-  };
+  const postContainer = containerViewFeed.querySelector('.postContainer');
+  postFunctions.feedUpdate((querySnapshot) => {
+    postContainer.innerHTML = '';
+    querySnapshot.forEach((doc) => {
+      const docData = doc.data();
+      // docData.id = doc.id;
+      console.log(docData);
+      postContainer.innerHTML += `<div class="post">
+                                      <p>${docData.user}</p>
+                                      <p>${docData.post}</p>
+                                      <p>${docData.date}</p>
+                                    </div>`;
+    });
 
-  // window.addEventListener("load", () => {
-  // firebaseLoginFunctions.showUser;
-  // });
+    // };
+  });
+
+  //   window.addEventListener("load", () => {
+  //     firebaseLoginFunctions.showUser;
+  //   });
 
   // const db = firebase.firestore();
   // const coleccionTextPost = db.collection('textPost');
   // console.log(coleccionTextPost);
-  // coleccionTextPost.get().then(querySnap shot=>{
+  // coleccionTextPost.get().then(querySnapshot=>{
 
   //   querySnapshot.forEach(doc=>{
   //     console.log(viewPost(doc));
