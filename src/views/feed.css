@@ -5,7 +5,7 @@ background-color: #fff;
 flex-direction: row;
 align-content: stretch;
 justify-content: space-between;
-box-shadow: 0px 2px 5px 2px #bbbbbb;;
+box-shadow: 0px 2px 4px 0px #bbbbbb;
 }
 
 .womanbike{
@@ -55,7 +55,9 @@ box-shadow: 0px 2px 5px 2px #bbbbbb;;
 main{
     display: grid;
     margin: 20px;
+    margin-top: 30px;
     justify-items: center;
+    align-items: end;
 }
 
 .postUserContainer{
@@ -63,12 +65,13 @@ main{
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
+    align-content: stretch;
     padding: 12px;
     Width: 90%;
-    Height: 40%;
-    border-radius: 6px;
+    Height: 80%;
+    border-radius: 4px;
     background-color: white;
-    box-shadow: 0px 2px 5px 2px #bbbbbb;
+    box-shadow: 0px 2px 4px 0px #bbbbbb;
     margin-top: 5px;
 }
 
@@ -78,12 +81,11 @@ main{
 
 .inputPost{
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     background-color: rgba(243, 243, 243, 1);
     color: rgba(100, 0, 73, 1);
-    width: 97%;
+    width: 125%;
     height: 40%;
-    margin-top: 5px;
     padding: 4px;
     font-size: 11px;
 }
@@ -96,11 +98,11 @@ main{
 .buttonPost{
     cursor: pointer;
     border: none;
-    width: 55px;
-    height: 12px;
+    width: 58px;
+    height: 16px;
     color: white;
     background-color: #49b18e;
-    font-size: 8px;
+    font-size: 10px;
     text-align: center;
     border-radius: 6px;
     box-shadow: 0px 1px 3px 1px #bbbbbb;
@@ -109,11 +111,42 @@ main{
 }
 
 .post{
-    background-color: teal;
-    border-color: black;
+    color: rgba(152, 0, 111, 1);
+    box-shadow: 0px 2px 4px 0px #bbbbbb;
+    width: auto;
+    border-radius: 4px;
+    background-color: white;
     margin: 15px;
+    padding: 10px;
 }
 
-.postButtons{
-    display: none;
+.postUser{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.postDate{
+    font-size: 10px;
+}
+
+.postPost{
+    font-size: 14px;
+}
+
+#formPost{
+    width: 79%;
+}
+
+.btnLike{
+    background-color: white;
+    border: none;
+    margin-right: 65%;
+}
+.btnEdit{
+    background-color: white;
+    border: none;
+}
+.btnDelete{
+    background-color: white;
+    border: none;
 }
