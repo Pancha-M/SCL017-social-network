@@ -113,3 +113,7 @@ main{
     border-color: black;
     margin: 15px;
 }
+
+.postButtons{
+    display: none;
+}

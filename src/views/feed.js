@@ -26,7 +26,7 @@ export const feed = () => {
   <main>
     <div class="postUserContainer">
       <div class="user">
-        <img class="imgUser" src="" alt="FotoPerfilUsuaria">
+        <div id=photoUser></div>
         <div class="nameUser"></div>
       </div>
       <form id="formPost" >
@@ -39,6 +39,36 @@ export const feed = () => {
 </div>`;
   containerViewFeed.innerHTML = viewFeed;
 
+  // Mostrar y actualizar cada vez que se abre el feed o se ingresa un comentario
+  postFunctions.observer();
+  const userActive = firebase.auth().currentUser.email;
+  const postContainer = containerViewFeed.querySelector('.postContainer');
+  postFunctions.feedUpdate((querySnapshot) => {
+    postContainer.innerHTML = '';
+    querySnapshot.forEach((doc) => {
+      const docData = doc.data();
+      docData.id = doc.id;
+      console.log(docData);
+      postContainer.innerHTML += `<div class="post">
+                                      <p>${docData.user}</p>
+                                      <p>${docData.post}</p>
+                                      <p>${docData.date}</p>
+                                      <div class="buttonsPost></div>
+                                    </div>`;
+      if (userActive === docData.email) {
+        console.log(`if${userActive}`);
+        console.log(`if${docData.email}`);
+        //   const postButtons = containerViewFeed.querySelector('.postButtons');
+        //   console.log("soy el div de los botones" + postButtons);
+        //   postButtons.style.display = 'block';
+        postContainer.innerHTML += `
+      <button class="deleteButton" id="deleteButton">borrar</button>
+      <button class="editButton" id="editButton">editar</button>;`;
+      }
+    });
+  });
+
+  // guardar post en colleccion con el boton
   const formPost = containerViewFeed.querySelector('#formPost');
   formPost.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -49,61 +79,13 @@ export const feed = () => {
     formPost.reset();
   });
 
-  const postContainer = containerViewFeed.querySelector('.postContainer');
-  postFunctions.feedUpdate((querySnapshot) => {
-    postContainer.innerHTML = '';
-    querySnapshot.forEach((doc) => {
-      const docData = doc.data();
-      // docData.id = doc.id;
-      console.log(docData);
-      postContainer.innerHTML += `<div class="post">
-                                      <p>${docData.user}</p>
-                                      <p>${docData.post}</p>
-                                      <p>${docData.date}</p>
-                                    </div>`;
-    });
-
-    // };
-  });
-
-  //   window.addEventListener("load", () => {
-  //     firebaseLoginFunctions.showUser;
-  //   });
-
-  // const db = firebase.firestore();
-  // const coleccionTextPost = db.collection('textPost');
-  // console.log(coleccionTextPost);
-  // coleccionTextPost.get().then(querySnapshot=>{
-
-  //   querySnapshot.forEach(doc=>{
-  //     console.log(viewPost(doc));
-  //   })  ``
-
-  // })
-
-  // const viewPost = () => {
-  //   const containerPost = containerViewFeed.querySelector('#containerPost');
-  //   containerPost.innerHTML += `<p>${doc.data()}</p>`;
-
-  // }
-
-  // const postContainer = containerViewFeed.querySelector('#postContainer');
-  // const onGetPost = (callback) => db.collection('textPost').onSnapshot(callback);
-
-  // window.addEventListener('DOMContentLoaded', async (e) => {
-  //   onGetPost((querySnapshot) => {
-  //     // postContainer.innerHTML = '';
-  //     querySnapshot.forEach((doc) => {
-  //       console.log(doc.data());
-
-  //       const postData = doc.data();
-
-  //       postContainer.innerHTML += `<div class = post>
-  //                                    <h5>${postData.textPost}</h5>
-  //                                      </div>`;
-  //     });
-  //   });
+  // const deleteButton = containerViewFeed.querySelector('.deleteButton');
+  // // deleteButton.forEach((btn) => {
+  // deleteButton.addEventListener('click', (e) => {
+  //   console.log('me voy a borrar');
+  //   // postFunctions.deletePost(e.target.dataset.id);
   // });
+  // // });
 
   return containerViewFeed;
 };
