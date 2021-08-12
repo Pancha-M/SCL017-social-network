@@ -65,6 +65,8 @@ export const feed = () => {
                                       <button class="btnDelete"><span class="iconify" data-inline="false" data-icon="fluent:delete-24-filled" style="color: dimgray;"></span>
                                       </button>
                                     </div>`;
+      const btnDelete = document.querySelectorAll('.btnDelete');
+      console.log(btnDelete);
     });
 
     // };

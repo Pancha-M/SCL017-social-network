@@ -66,13 +66,15 @@ main{
     align-items: flex-start;
     justify-content: space-between;
     align-content: stretch;
+    margin-top: 5px;
+    margin-bottom: 10px;
     padding: 12px;
     Width: 90%;
     Height: 80%;
+    max-width: 450px;
     border-radius: 4px;
     background-color: white;
     box-shadow: 0px 2px 4px 0px #bbbbbb;
-    margin-top: 5px;
 }
 
 .imgUser{
@@ -116,7 +118,7 @@ main{
     width: auto;
     border-radius: 4px;
     background-color: white;
-    margin: 15px;
+    margin: 10px;
     padding: 10px;
 }
 
