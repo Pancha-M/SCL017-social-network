@@ -26,7 +26,7 @@ export const feed = () => {
   <main>
     <div class="postUserContainer">
       <div class="user">
-        <img class="imgUser" src="" alt="FotoPerfilUsuaria">
+        <img class="imgUser" src="" alt="">
         <div class="nameUser"></div>
       </div>
       <form id="formPost" >
@@ -57,9 +57,13 @@ export const feed = () => {
       // docData.id = doc.id;
       console.log(docData);
       postContainer.innerHTML += `<div class="post">
-                                      <p>${docData.user}</p>
-                                      <p>${docData.post}</p>
-                                      <p>${docData.date}</p>
+                                      <div class="postUser">${docData.user}</div>
+                                      <div class="postDate">${docData.date}</div>
+                                      <div class="postPost">${docData.post}</div>
+                                      <button class="btnLike"><span class="iconify" data-inline="false" data-icon="akar-icons:heart" style="color: darkmagenta;"></span></button>
+                                      <button class="btnEdit"><span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="color: dimgray;"></span></button>
+                                      <button class="btnDelete"><span class="iconify" data-inline="false" data-icon="fluent:delete-24-filled" style="color: dimgray;"></span>
+                                      </button>
                                     </div>`;
     });
 
