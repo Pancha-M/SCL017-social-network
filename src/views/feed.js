@@ -26,7 +26,7 @@ export const feed = () => {
   <main>
     <div class="postUserContainer">
       <div class="user">
-        <div id=photoUser></div>
+        <img class="imgUser" src="" alt="">
         <div class="nameUser"></div>
       </div>
       <form id="formPost" >
@@ -50,10 +50,10 @@ export const feed = () => {
       docData.id = doc.id;
       console.log(docData);
       postContainer.innerHTML += `<div class="post">
-                                      <p>${docData.user}</p>
-                                      <p>${docData.post}</p>
-                                      <p>${docData.date}</p>
-                                      <div class="buttonsPost></div>
+                                      <div class="postUser">${docData.user}</div>
+                                      <div class="postDate">${docData.date}</div>
+                                      <div class="postPost">${docData.post}</div>
+                                      <button class="btn-Like"><span class="iconify" data-inline="false" data-icon="akar-icons:heart" style="color: darkmagenta;"></span></button>
                                     </div>`;
       if (userActive === docData.email) {
         console.log(`if${userActive}`);
@@ -61,9 +61,8 @@ export const feed = () => {
         //   const postButtons = containerViewFeed.querySelector('.postButtons');
         //   console.log("soy el div de los botones" + postButtons);
         //   postButtons.style.display = 'block';
-        postContainer.innerHTML += `
-      <button class="deleteButton" id="deleteButton">borrar</button>
-      <button class="editButton" id="editButton">editar</button>;`;
+        postContainer.innerHTML += `<button class="btn-Edit"><span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="color: dimgray;"></span></button>
+                                    <button class="btn-Delete">borrar</button>`;
       }
     });
   });
@@ -79,13 +78,14 @@ export const feed = () => {
     formPost.reset();
   });
 
-  // const deleteButton = containerViewFeed.querySelector('.deleteButton');
-  // // deleteButton.forEach((btn) => {
-  // deleteButton.addEventListener('click', (e) => {
-  //   console.log('me voy a borrar');
-  //   // postFunctions.deletePost(e.target.dataset.id);
-  // });
-  // // });
+  const deleteButton = document.querySelectorAll('.btn-Delete');
+  deleteButton.forEach((btn) => {
+    btn.addEventListener('click', async (e) => {
+      console.log("hola mundo");
+      alert(HOLAAAAA);
+      await postFunctions.deletePost(e.target.dataset.id);
+    });
+  });
 
   return containerViewFeed;
 };
