@@ -56,7 +56,6 @@ main{
     display: grid;
     margin: 20px;
     margin-top: 30px;
-    justify-items: center;
     align-items: end;
 }
 
@@ -144,11 +143,11 @@ main{
     border: none;
     margin-right: 65%;
 }
-.btnEdit{
+.editButton{
     background-color: white;
     border: none;
 }
-.btnDelete{
+.deleteButton{
     background-color: white;
     border: none;
 }
