@@ -9,6 +9,10 @@ body{
     background-color: #FAF0EF;
 }
 
+button{
+    cursor: pointer;
+}
+
 .containerLogin{
     display: flex;
     flex-direction: column;

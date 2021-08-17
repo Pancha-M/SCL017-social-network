@@ -3,8 +3,7 @@ const postFunctions = {
   observer: () => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        let userActive;
-        userActive = user;
+        const userActive = user;
         console.log('Active user');
         console.log(user.email);
         console.log(user.displayName);
