@@ -42,7 +42,7 @@ export const feed = () => {
   // Mostrar y actualizar cada vez que se abre el feed o se ingresa un comentario
   postFunctions.observer();
   const userActive = firebase.auth().currentUser.email;
-  const postContainer = containerViewFeed.querySelector('.postContainer');
+  const postContainer = document.createElement('div');
   postFunctions.feedUpdate((querySnapshot) => {
     postContainer.innerHTML = '';
     querySnapshot.forEach((doc) => {
@@ -61,31 +61,42 @@ export const feed = () => {
         //   const postButtons = containerViewFeed.querySelector('.postButtons');
         //   console.log("soy el div de los botones" + postButtons);
         //   postButtons.style.display = 'block';
-        postContainer.innerHTML += `<button class="btn-Edit"><span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="color: dimgray;"></span></button>
-                                    <button class="btn-Delete">borrar</button>`;
+        postContainer.innerHTML += `<button class="btn-Edit" id="btn-edit"><span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="color: dimgray;"></span></button>
+                                    <button class="btn-Delete" id="btn-delete"><span class="iconify" data-icon="fluent:delete-28-filled" style="color: dimgray;"></span></button>`;
       }
+
+      const buttonDelete = postContainer.querySelector('#btn-delete');
+      buttonDelete.addEventListener('click', () => {
+        console.log('soy el boton funcionando', docData.id);
+        postFunctions.deletePost(docData.id);
+      });
+      // const buttonEdit = postContainer.querySelector('#btn-edit');
+      // buttonEdit.addEventListener('click', () => {
+      //   postFunctions.editPost(docData.id);
+      // });
     });
   });
 
-  // guardar post en colleccion con el boton
+  // guardar post en coleccion con el boton
   const formPost = containerViewFeed.querySelector('#formPost');
   formPost.addEventListener('submit', async (e) => {
     e.preventDefault();
     const post = containerViewFeed.querySelector('#inputPost').value;
-    console.log(`soy el input ${post}`);
-    console.log(`Soy el boton${formPost}`);
     postFunctions.savePost(post);
     formPost.reset();
   });
 
-  const deleteButton = document.querySelectorAll('.btn-Delete');
-  deleteButton.forEach((btn) => {
-    btn.addEventListener('click', async (e) => {
-      console.log("hola mundo");
-      alert(HOLAAAAA);
-      await postFunctions.deletePost(e.target.dataset.id);
-    });
-  });
+  containerViewFeed.querySelector('#postContainer').appendChild(postContainer);
+  // estos botones no estan en el dom
+  // const deleteButton = containerViewFeed.querySelectorAll('#btn-Delete');
+  // console.log('botones de borrar', deleteButton);
+  // deleteButton.forEach((btn) => {
+  //   btn.addEventListener('click', async (e) => {
+  //     console.log('hola mundo');
+  //     alert(HOLAAAAA);
+  //     await postFunctions.deletePost(e.target.dataset.id);
+  //   });
+  // });
 
   return containerViewFeed;
 };
