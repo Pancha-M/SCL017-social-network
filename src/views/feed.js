@@ -56,11 +56,6 @@ export const feed = () => {
                                       <button class="btn-Like"><span class="iconify" data-inline="false" data-icon="akar-icons:heart" style="color: darkmagenta;"></span></button>
                                     </div>`;
       if (userActive === docData.email) {
-        console.log(`if${userActive}`);
-        console.log(`if${docData.email}`);
-        //   const postButtons = containerViewFeed.querySelector('.postButtons');
-        //   console.log("soy el div de los botones" + postButtons);
-        //   postButtons.style.display = 'block';
         postContainer.innerHTML += `<button class="btn-Edit" id="btn-edit"><span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="color: dimgray;"></span></button>
                                     <button class="btn-Delete" id="btn-delete"><span class="iconify" data-icon="fluent:delete-28-filled" style="color: dimgray;"></span></button>`;
       }
@@ -70,10 +65,13 @@ export const feed = () => {
         console.log('soy el boton funcionando', docData.id);
         postFunctions.deletePost(docData.id);
       });
+
       // const buttonEdit = postContainer.querySelector('#btn-edit');
+      // const post = containerViewFeed.querySelector('#inputPost').value;
+      // console.log(post);
+      // console.log(buttonEdit);
       // buttonEdit.addEventListener('click', () => {
-      //   postFunctions.editPost(docData.id);
-      // });
+      // postFunctions.editPost(docData.id);
     });
   });
 
@@ -85,6 +83,8 @@ export const feed = () => {
     postFunctions.savePost(post);
     formPost.reset();
   });
+
+  // });
 
   containerViewFeed.querySelector('#postContainer').appendChild(postContainer);
   // estos botones no estan en el dom
