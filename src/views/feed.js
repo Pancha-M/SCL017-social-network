@@ -30,7 +30,7 @@ export const feed = () => {
         <div class="nameUser"></div>
       </div>
       <form id="formPost" >
-      <input class="inputPost" id="inputPost" placeholder="Escribe tu comentario aquí..." cols="30" rows="10"></textarea>
+      <input class="inputPost" id="inputPost" placeholder="Escribe tu comentario aquí..." cols="30" rows="10"></input>
       <button class="buttonPost" id="buttonPost">Comentar</button>
       </form>
     </div>
@@ -48,11 +48,12 @@ export const feed = () => {
     querySnapshot.forEach((doc) => {
       const docData = doc.data();
       docData.id = doc.id;
-      console.log(docData);
       postContainer.innerHTML += `<div class="post">
                                       <div class="postUser">${docData.user}</div>
                                       <div class="postDate">${docData.date}</div>
-                                      <div class="postPost">${docData.post}</div>
+                                      <div class="divPostText" value=${docData.id} id="divPostText">
+                                      <span id="postText" value=${docData.id}>${docData.post}</span>
+                                      </div>
                                       <button class="btn-Like"><span class="iconify" data-inline="false" data-icon="akar-icons:heart" style="color: darkmagenta;"></span></button>
                                     </div>`;
       if (userActive === docData.email) {
@@ -65,7 +66,6 @@ export const feed = () => {
     });
 
     const buttonsDelete = postContainer.querySelectorAll('#btn-delete');
-    console.log(buttonsDelete);
     buttonsDelete.forEach((btn) => {
       btn.addEventListener('click', () => {
         if (confirm('¿Seguro que quieres eliminar este post?')) {
@@ -76,7 +76,6 @@ export const feed = () => {
     });
 
     const buttonsEdit = postContainer.querySelectorAll('#btn-edit');
-    console.log(buttonsEdit);
     buttonsEdit.forEach((btn) => {
       btn.addEventListener('click', async (e) => {
         const db = firebase.firestore();
@@ -87,11 +86,19 @@ export const feed = () => {
         console.log('EDIT POST', editPost);
         console.log('ID POST EDIT', idPostEdit);
         console.log('getEditPost', getEditPost);
+        console.log(editPostData);
+        console.log(btn.value);
 
-        // let formPost = containerViewFeed.querySelector('#formPost');
-        const formPost = editPostData.post;
-        console.log('post DAta', formPost);
+        const divPostText = postContainer.querySelector('#divPostText');
+        const spanText = postContainer.querySelector('#postText');
+        const spanTextValue = spanText.innerText;
+        divPostText.innerHTML = `<input value='${spanTextValue}'/>`;
       });
+
+      // const edit = db.collection('textPost').doc(idPostEdit);
+      // edit.update({
+      //   post: spanTextValue,
+      // });
     });
   });
 

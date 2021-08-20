@@ -49,6 +49,7 @@ const postFunctions = {
     const db = firebase.firestore();
     db.collection('textPost').doc(id).delete();
   },
+
 };
 
 export default postFunctions;
