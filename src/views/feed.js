@@ -56,22 +56,42 @@ export const feed = () => {
                                       <button class="btn-Like"><span class="iconify" data-inline="false" data-icon="akar-icons:heart" style="color: darkmagenta;"></span></button>
                                     </div>`;
       if (userActive === docData.email) {
-        postContainer.innerHTML += `<button class="btn-Edit" id="btn-edit"><span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="color: dimgray;"></span></button>
-                                    <button class="btn-Delete" id="btn-delete"><span class="iconify" data-icon="fluent:delete-28-filled" style="color: dimgray;"></span></button>`;
+        //   const postButtons = containerViewFeed.querySelector('.postButtons');
+        //   console.log("soy el div de los botones" + postButtons);
+        //   postButtons.style.display = 'block';
+        postContainer.innerHTML += `<button class="btn-Edit" id="btn-edit" value=${docData.id}"><span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="color: dimgray;"></span></button>
+                                    <button class="btn-Delete" id="btn-delete" value=${docData.id}><span class="iconify" data-icon="fluent:delete-28-filled" style="color: dimgray;"></span></button>`;
       }
+    });
 
-      const buttonDelete = postContainer.querySelector('#btn-delete');
-      buttonDelete.addEventListener('click', () => {
-        console.log('soy el boton funcionando', docData.id);
-        postFunctions.deletePost(docData.id);
+    const buttonsDelete = postContainer.querySelectorAll('#btn-delete');
+    console.log(buttonsDelete);
+    buttonsDelete.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        if (confirm('¿Seguro que quieres eliminar este post?')) {
+          console.log(btn.value);
+          postFunctions.deletePost(btn.value);
+        }
       });
+    });
 
-      // const buttonEdit = postContainer.querySelector('#btn-edit');
-      // const post = containerViewFeed.querySelector('#inputPost').value;
-      // console.log(post);
-      // console.log(buttonEdit);
-      // buttonEdit.addEventListener('click', () => {
-      // postFunctions.editPost(docData.id);
+    const buttonsEdit = postContainer.querySelectorAll('#btn-edit');
+    console.log(buttonsEdit);
+    buttonsEdit.forEach((btn) => {
+      btn.addEventListener('click', async (e) => {
+        const db = firebase.firestore();
+        const editPost = (id) => db.collection('textPost').doc(id).get();
+        const getEditPost = await editPost(e.target.dataset.id);
+        const editPostData = getEditPost.data;
+        const idPostEdit = (getEditPost.id);
+        console.log('EDIT POST', editPost);
+        console.log('ID POST EDIT', idPostEdit);
+        console.log('getEditPost', getEditPost);
+
+        // let formPost = containerViewFeed.querySelector('#formPost');
+        const formPost = editPostData.post;
+        console.log('post DAta', formPost);
+      });
     });
   });
 
@@ -80,23 +100,14 @@ export const feed = () => {
   formPost.addEventListener('submit', async (e) => {
     e.preventDefault();
     const post = containerViewFeed.querySelector('#inputPost').value;
-    postFunctions.savePost(post);
-    formPost.reset();
+    if (post !== '') {
+      postFunctions.savePost(post);
+      formPost.reset();
+    } else (alert('Debes ingresar un texto'));
   });
 
   // });
 
   containerViewFeed.querySelector('#postContainer').appendChild(postContainer);
-  // estos botones no estan en el dom
-  // const deleteButton = containerViewFeed.querySelectorAll('#btn-Delete');
-  // console.log('botones de borrar', deleteButton);
-  // deleteButton.forEach((btn) => {
-  //   btn.addEventListener('click', async (e) => {
-  //     console.log('hola mundo');
-  //     alert(HOLAAAAA);
-  //     await postFunctions.deletePost(e.target.dataset.id);
-  //   });
-  // });
-
   return containerViewFeed;
 };

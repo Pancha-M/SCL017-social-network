@@ -35,6 +35,11 @@ const postFunctions = {
     });
   },
 
+  getDocById: (id) => {
+    const db = firebase.firestore();
+    db.collection('post').doc(id).get();
+  },
+
   feedUpdate: (callback) => {
     const db = firebase.firestore();
     db.collection('textPost').onSnapshot(callback);
