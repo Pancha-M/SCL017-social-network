@@ -42,17 +42,28 @@ export const feed = () => {
   // Mostrar y actualizar cada vez que se abre el feed o se ingresa un comentario
   postFunctions.observer();
   const userActive = firebase.auth().currentUser.email;
+
+  const userNameActive = firebase.auth().currentUser.displayName;
+  const nameUserText = containerViewFeed.querySelector('.nameUser');
+  nameUserText.innerText = userNameActive;
+
+  const photoURL = firebase.auth().currentUser.photoURL;
+  const imgUser = containerViewFeed.querySelector('.imgUser');
+  imgUser.style.backgroundImage = `url(${photoURL})`;
+  console.log(photoURL);
+
   const postContainer = document.createElement('div');
   postFunctions.feedUpdate((querySnapshot) => {
     postContainer.innerHTML = '';
     querySnapshot.forEach((doc) => {
       const docData = doc.data();
       docData.id = doc.id;
-      postContainer.innerHTML += `<div class="post">
+      postContainer.innerHTML += `<div class="post" id="divPostItems">
                                       <div class="postUser">${docData.user}</div>
                                       <div class="postDate">${docData.date}</div>
-                                      <div class="divPostText" value=${docData.id} id="divPostText">
-                                      <span id="postText" value=${docData.id}>${docData.post}</span>
+                                      <div class="divPostText" id=${docData.id}>
+                                        <span id="postText">${docData.post}</span>
+                                       
                                       </div>
                                       <button class="btn-Like"><span class="iconify" data-inline="false" data-icon="akar-icons:heart" style="color: darkmagenta;"></span></button>
                                     </div>`;
@@ -60,7 +71,8 @@ export const feed = () => {
         //   const postButtons = containerViewFeed.querySelector('.postButtons');
         //   console.log("soy el div de los botones" + postButtons);
         //   postButtons.style.display = 'block';
-        postContainer.innerHTML += `<button class="btn-Edit" id="btn-edit" value=${docData.id}"><span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="color: dimgray;"></span></button>
+        postContainer.innerHTML += `<button class="btn-Edit" id="btn-edit" value=${docData.id}> <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="color: dimgray;"></span></button>
+                                    <button class="noneButtonPost" id="noneButtonPost" value=${docData.id}>Aceptar</button> 
                                     <button class="btn-Delete" id="btn-delete" value=${docData.id}><span class="iconify" data-icon="fluent:delete-28-filled" style="color: dimgray;"></span></button>`;
       }
     });
@@ -89,30 +101,41 @@ export const feed = () => {
         console.log(editPostData);
         console.log(btn.value);
 
-        const divPostText = postContainer.querySelector('#divPostText');
-        const spanText = postContainer.querySelector('#postText');
+        const divPostText = postContainer.querySelector(`#${btn.value}`);
+        const spanText = divPostText.querySelector('#postText');
         const spanTextValue = spanText.innerText;
-        divPostText.innerHTML = `<input value='${spanTextValue}'/>`;
-      });
+        divPostText.innerHTML = `<input class="inputEditText" value='${spanTextValue}'/>`;
+        const editPostButton = postContainer.querySelector('#noneButtonPost');
+        const editPostButtonValue = editPostButton.value;
+        editPostButtonValue.style.display = 'block';
 
-      // const edit = db.collection('textPost').doc(idPostEdit);
-      // edit.update({
-      //   post: spanTextValue,
-      // });
+
+        const divPostTextClass = postContainer.querySelector('.divPostText');
+        divPostTextClass.addEventListener('click', async () => {
+          const edit = db.collection('textPost').doc(idPostEdit);
+          edit.update({
+            post: divPostTextClass.querySelector('inputEditText').value,
+          });
+          const textoEditadoValor = divPostTextClass.querySelector('inputEditText').value;
+          console.log('editado', textoEditadoValor);
+        });
+      });
+    });
+
+    // guardar post en coleccion con el boton
+    const formPost = containerViewFeed.querySelector('#formPost');
+    formPost.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const post = containerViewFeed.querySelector('#inputPost').value;
+      if (post === '') {
+        alert('Debes ingresar un texto');
+      } else {
+        postFunctions.savePost(post);
+        formPost.reset();
+      }
     });
   });
-
-  // guardar post en coleccion con el boton
-  const formPost = containerViewFeed.querySelector('#formPost');
-  formPost.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const post = containerViewFeed.querySelector('#inputPost').value;
-    if (post !== '') {
-      postFunctions.savePost(post);
-      formPost.reset();
-    } else (alert('Debes ingresar un texto'));
-  });
-
   containerViewFeed.querySelector('#postContainer').appendChild(postContainer);
+
   return containerViewFeed;
 };

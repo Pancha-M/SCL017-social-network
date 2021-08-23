@@ -76,8 +76,22 @@ main{
     box-shadow: 0px 2px 4px 0px #bbbbbb;
 }
 
+.user{
+    display: flex;
+    align-items: center;
+}
+
 .imgUser{
-    width: 20%;
+padding: 40px;
+border-radius: 50px;
+background-image: no-repeat;
+}
+
+.nameUser{
+margin: 30px;
+font-weight: bold;
+    font-size: 16px;
+color: rgba(100, 0, 73, 1);
 }
 
 .inputPost{
@@ -151,3 +165,10 @@ main{
     background-color: white;
     border: none;
 }
+
+.noneButtonPost{
+    display: none;
+}
+
+
+
