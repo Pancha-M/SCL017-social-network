@@ -166,9 +166,15 @@ color: rgba(100, 0, 73, 1);
     border: none;
 }
 
-.noneButtonPost{
-    display: none;
-}
+.btn-Edit{
+     background-color: white; 
+     border: none; 
+    } 
+.btn-Delete{ 
+    background-color: white; 
+    border: none; } 
 
+.noneButtonPost{ 
+    background-color: white; border: none; } 
 
 

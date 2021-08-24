@@ -61,9 +61,8 @@ export const feed = () => {
       postContainer.innerHTML += `<div class="post" id="divPostItems">
                                       <div class="postUser">${docData.user}</div>
                                       <div class="postDate">${docData.date}</div>
-                                      <div class="divPostText" id=${docData.id}>
-                                        <span id="postText">${docData.post}</span>
-                                       
+                                      <div class="divPostText" id="divPost${docData.id}">
+                                        <span id="postText${docData.id}">${docData.post}</span>
                                       </div>
                                       <button class="btn-Like"><span class="iconify" data-inline="false" data-icon="akar-icons:heart" style="color: darkmagenta;"></span></button>
                                     </div>`;
@@ -71,8 +70,7 @@ export const feed = () => {
         //   const postButtons = containerViewFeed.querySelector('.postButtons');
         //   console.log("soy el div de los botones" + postButtons);
         //   postButtons.style.display = 'block';
-        postContainer.innerHTML += `<button class="btn-Edit" id="btn-edit" value=${docData.id}> <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="color: dimgray;"></span></button>
-                                    <button class="noneButtonPost" id="noneButtonPost" value=${docData.id}>Aceptar</button> 
+        postContainer.innerHTML += `<button class="btn-Edit" id="btn-edit" value=${docData.id}> <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="color: dimgray;"></span></button> 
                                     <button class="btn-Delete" id="btn-delete" value=${docData.id}><span class="iconify" data-icon="fluent:delete-28-filled" style="color: dimgray;"></span></button>`;
       }
     });
@@ -92,31 +90,32 @@ export const feed = () => {
       btn.addEventListener('click', async (e) => {
         const db = firebase.firestore();
         const editPost = (id) => db.collection('textPost').doc(id).get();
-        const getEditPost = await editPost(e.target.dataset.id);
+        console.log(btn.value);
+        console.log(e.target.dataset.id);
+        const getEditPost = await editPost(btn.value);
+        console.log(getEditPost);
         const editPostData = getEditPost.data;
         const idPostEdit = (getEditPost.id);
-        console.log('EDIT POST', editPost);
-        console.log('ID POST EDIT', idPostEdit);
-        console.log('getEditPost', getEditPost);
-        console.log(editPostData);
-        console.log(btn.value);
+        // console.log('EDIT POST', editPost);
+        // console.log('ID POST EDIT', idPostEdit);
+        // console.log('getEditPost', getEditPost);
+        // console.log(editPostData);
 
-        const divPostText = postContainer.querySelector(`#${btn.value}`);
-        const spanText = divPostText.querySelector('#postText');
+        const divPostText = postContainer.querySelector(`#divPost${btn.value}`);
+        const spanText = postContainer.querySelector(`#postText${btn.value}`);
         const spanTextValue = spanText.innerText;
-        divPostText.innerHTML = `<input class="inputEditText" value='${spanTextValue}'/>`;
-        const editPostButton = postContainer.querySelector('#noneButtonPost');
-        const editPostButtonValue = editPostButton.value;
-        editPostButtonValue.style.display = 'block';
+        console.log(spanTextValue);
+        divPostText.innerHTML = `<input class="inputEditText" value='${spanTextValue}'/>
+                                <button class="buttonEditPost"><span class="iconify" data-icon="bi:check-circle"></span></button>`;
 
-
-        const divPostTextClass = postContainer.querySelector('.divPostText');
-        divPostTextClass.addEventListener('click', async () => {
+        const buttonEditPost = postContainer.querySelector('.buttonEditPost');
+        buttonEditPost.addEventListener('click', () => {
+          console.log('Hola soy el boton lindo');
           const edit = db.collection('textPost').doc(idPostEdit);
           edit.update({
-            post: divPostTextClass.querySelector('inputEditText').value,
+            post: divPostText.querySelector('.inputEditText').value,
           });
-          const textoEditadoValor = divPostTextClass.querySelector('inputEditText').value;
+          const textoEditadoValor = divPostText.querySelector('.inputEditText').value;
           console.log('editado', textoEditadoValor);
         });
       });
