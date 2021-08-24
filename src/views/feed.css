@@ -82,16 +82,16 @@ main{
 }
 
 .imgUser{
-padding: 40px;
-border-radius: 50px;
-background-image: no-repeat;
+    padding: 40px;
+    border-radius: 50px;
+    background-image: no-repeat;
 }
 
 .nameUser{
-margin: 30px;
-font-weight: bold;
+    margin: 30px;
+    font-weight: bold;
     font-size: 16px;
-color: rgba(100, 0, 73, 1);
+    color: rgba(100, 0, 73, 1);
 }
 
 .inputPost{
@@ -144,7 +144,7 @@ color: rgba(100, 0, 73, 1);
     font-size: 10px;
 }
 
-.postPost{
+#divPostText{
     font-size: 14px;
 }
 
@@ -166,10 +166,7 @@ color: rgba(100, 0, 73, 1);
     border: none;
 }
 
-.noneButtonPost{
-    background-color: white;
-    border: none;
-}
-
+.noneButtonPost{ 
+    background-color: white; border: none; } 
 
 
