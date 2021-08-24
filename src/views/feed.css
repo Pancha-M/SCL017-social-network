@@ -76,8 +76,22 @@ main{
     box-shadow: 0px 2px 4px 0px #bbbbbb;
 }
 
+.user{
+    display: flex;
+    align-items: center;
+}
+
 .imgUser{
-    width: 20%;
+padding: 40px;
+border-radius: 50px;
+background-image: no-repeat;
+}
+
+.nameUser{
+margin: 30px;
+font-weight: bold;
+    font-size: 16px;
+color: rgba(100, 0, 73, 1);
 }
 
 .inputPost{
@@ -143,11 +157,19 @@ main{
     border: none;
     margin-right: 65%;
 }
-.editButton{
+.btn-Edit{
     background-color: white;
     border: none;
 }
-.deleteButton{
+.btn-Delete{
     background-color: white;
     border: none;
 }
+
+.noneButtonPost{
+    background-color: white;
+    border: none;
+}
+
+
+
