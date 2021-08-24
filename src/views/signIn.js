@@ -30,7 +30,6 @@ export const signIn = () => {
                        </div>`;
   containerViewSignIn.innerHTML = viewSignIn;
 
-  // Iniciar sesion con email y contraseña ya registrada
   const signInEmailPass = containerViewSignIn.querySelector('#signInEmailPass');
 
   signInEmailPass.addEventListener('click', () => {

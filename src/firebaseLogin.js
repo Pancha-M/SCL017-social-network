@@ -3,10 +3,8 @@ import {
 } from './erroresSignUp.js';
 
 const firebaseLoginFunctions = {
-  // ACA DENTRO IRAN LAS FUNCIONESDDE FIREBASE
 
   // INICIAR SESION CON GOOGLE
-
   signInGoogle: () => {
     const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -36,7 +34,7 @@ const firebaseLoginFunctions = {
       });
   },
 
-  // REGISTRO DE USUARIO
+  // REGISTRO DE NUEVO USUARIO
   signUpFunction: (password, email, username) => {
     firebase.auth().createUserWithEmailAndPassword(email, password)
     // Signed in
@@ -67,13 +65,11 @@ const firebaseLoginFunctions = {
       .catch((error) => {
         const errorCode = error.code;
         if (errorCode === 'auth/weak-password') {
-          console.log('contrasena muy corta');
           document.getElementById('containerModal').appendChild(errorPassFunction());
           const modal = document.getElementById('containerModal');
           modal.style.display = 'block';
         }
         if (errorCode === 'auth/invalid-email') {
-          console.log('Ingresa un email valido');
           document.getElementById('containerModal').appendChild(errorInvalidEmail());
           const modal = document.getElementById('containerModal');
           modal.style.display = 'block';
@@ -81,7 +77,7 @@ const firebaseLoginFunctions = {
       });
   },
 
-  // Inicio de sesion con constrasena e email
+  // INICIO DE SESIÓN CON EMAIL Y CONTRASEÑA
   signInFunction: (email, password) => {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
@@ -90,7 +86,6 @@ const firebaseLoginFunctions = {
         if (user && user.emailVerified === true) {
           window.location.assign('#feed');
         } else {
-          console.log('Verificar email');
           document.getElementById('containerModal').appendChild(errorVerifiedEmail());
           const modal = document.getElementById('containerModal');
           modal.style.display = 'block';
