@@ -1,5 +1,3 @@
-import { clearEmailInput, clearPassInputs } from './views/signUp.js';
-
 // ERROR PASS NO ES UN STRING
 export const errorPassFunction = () => {
   const containerErrorPass = document.createElement('div');
@@ -16,7 +14,8 @@ export const errorPassFunction = () => {
     containerErrorPass.innerHTML = '';
     const modal = document.getElementById('containerModal');
     modal.style.display = 'none';
-    clearPassInputs();
+    document.getElementById('inputPass').value = '';
+    document.getElementById('inputPassAgain').value = '';
   });
 
   return containerErrorPass;
@@ -38,8 +37,9 @@ export const errorInvalidEmail = () => {
     containerInvalidEmail.innerHTML = '';
     const modal = document.getElementById('containerModal');
     modal.style.display = 'none';
-    clearEmailInput();
-    clearPassInputs();
+    document.getElementById('inputEmail').value = '';
+    document.getElementById('inputPass').value = '';
+    document.getElementById('inputPassAgain').value = '';
   });
 
   return containerInvalidEmail;

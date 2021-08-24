@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import firebaseLoginFunctions from '../firebaseLogin.js';
 
 export const signUp = () => {
@@ -34,7 +35,6 @@ export const signUp = () => {
                       </div>`;
   containerViewSignUp.innerHTML = viewSignUp;
 
-  // Registro con email y contraseña
   const createUserButton = containerViewSignUp.querySelector('#createUserButton');
 
   createUserButton.addEventListener('click', () => {
@@ -49,9 +49,7 @@ export const signUp = () => {
         elementsSignUp.password,
         elementsSignUp.email,
         elementsSignUp.username,
-
       );
-      
     } else {
       alert('LA CONTRASEÑA NO COINCIDE, PORFAVOR REINTENTA');
     }
@@ -64,13 +62,4 @@ export const signUp = () => {
   });
 
   return containerViewSignUp;
-};
-
-export const clearPassInputs = () => {
-  document.getElementById('inputPass').value = '';
-  document.getElementById('inputPassAgain').value = '';
-};
-
-export const clearEmailInput = () => {
-  document.getElementById('inputEmail').value = '';
 };

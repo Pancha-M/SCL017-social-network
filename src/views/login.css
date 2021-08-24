@@ -126,7 +126,6 @@ b{
     .iconify:hover{
         background-color: #fcd3cf;
         border-radius: 5px;
-
     }
 
 @media (min-width: 1024px) {
@@ -134,7 +133,6 @@ b{
     .containerLogin{
         margin-top: 114px;
         flex-direction: row;
-
     }
 
     img{    
@@ -147,7 +145,6 @@ b{
         width: 322px;
         height: 418px;
     }
-
 
     .signInButton{
         margin-top: 93px;
@@ -162,13 +159,9 @@ b{
         border:none;
     }
     
-     
-    
     .iconify{
         background-color: #ffff;
         padding: 5px;
     
     }
-
-
 }
