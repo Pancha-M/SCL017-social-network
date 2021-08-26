@@ -9,7 +9,7 @@ const showTemplate = (hash) => {
   containerRoot.innerHTML = '';
 
   switch (hash) {
-    case '#login':
+    case '/SCL017-social-network/':
       containerRoot.appendChild(login());
       break;
 
@@ -33,7 +33,7 @@ const showTemplate = (hash) => {
 // cambia la ruta, reemplaza el # por un / y
 // se cambia el HTML con el return showtemplate
 export const changeRouter = (hash) => {
-  if (hash === '#login') {
+  if (hash === '/SCL017-social-network/') {
     window.history.replaceState({}, 'login', '/');
     return showTemplate(hash);
   }
@@ -55,7 +55,7 @@ export const changeRouter = (hash) => {
 // se le da funcionalidad correcta a los btn de atras y adelante del navegador
 window.onpopstate = (hash) => {
   if (window.location.pathname === '') {
-    hash = '#login';
+    hash = '/SCL017-social-network/';
     return showTemplate(hash);
   }
   if (window.location.pathname === '/signIn') {
