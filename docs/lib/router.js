@@ -54,7 +54,7 @@ export const changeRouter = (hash) => {
 
 // se le da funcionalidad correcta a los btn de atras y adelante del navegador
 window.onpopstate = (hash) => {
-  if (window.location.pathname === '/') {
+  if (window.location.pathname === '') {
     hash = '#login';
     return showTemplate(hash);
   }
@@ -64,6 +64,10 @@ window.onpopstate = (hash) => {
   }
   if (window.location.pathname === '/signUp') {
     hash = '#signUp';
+    return showTemplate(hash);
+  }
+  if (window.location.reload === true){
+    window.location.href.substr(0, window.location.href.indexOf('#'))
     return showTemplate(hash);
   }
 };

@@ -68,7 +68,8 @@ export const feed = () => {
                                       <div class="divPostText" id="divPost${docData.id}">
                                         <span id="postText${docData.id}">${docData.post}</span>
                                       </div>
-                                      <button class="btn-Like"><span class="iconify" data-inline="false" data-icon="akar-icons:heart" style="color: darkmagenta;"></span></button>
+                                      <button class="btn-Like" value=${docData.id}><span class="iconify" data-inline="false" data-icon="akar-icons:heart" style="color: darkmagenta;"></span></button>
+                                      <div class="likesCount"></div>
                                     </div>`;
       if (userActive === docData.email) {
         postContainer.innerHTML += `<button class="btn-Edit" id="btn-edit" value=${docData.id}> <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="color: dimgray;"></span></button> 
@@ -126,7 +127,49 @@ export const feed = () => {
         });
       });
     });
+
+    // BOTON DE LIKE
+    // llamar al boton de like
+    // const likeButton = containerViewFeed.querySelectorAll('.btn-Like');
+    // likeButton.forEach((btn) => {
+    //   btn.addEventListener('click', async (e) => {
+    //     const db = firebase.firestore();
+    //     const likeCollection = (id) => db.collection('textPost').doc(id).get();
+    //     const getLikePost = await likeCollection(btn.value);
+    //     const likePostId = getLikePost.id;
+    //     const likesRef = db.collection('postText').doc(likePostId);
+    //     const userSesion = firebase.auth().currentUser;
+        
+    //     const likes = likesRef.data().like;
+    //       console.log(likes)  
+          
+
+    //       if (likesArray.includes(userSesion.uid)) {
+    //         likesRef.update({
+    //           like: firebase.firestore.FieldValue.arrayRemove(userSesion.uid),
+    //         });
+    //       } else {
+    //         likesRef.update({
+    //           like: firebase.firestore.FieldValue.arrayUnion(userSesion.uid),
+
+    //         });
+    //       }
+    //       console.log(likesArray);
+      
+    //     console.log(btn.value);
+    //   });
+      // Se suman los numeros al contador
+    // });
   });
+
+  // Crear un contador que almacene los likes cada vez que se haga click
+  // el contador sera un value
+  // Que el valor del contador se vaya agregando a la coleccion textPost (like) cada vez
+  // que se haga click
+  // crear un if - else que diga:
+  // IF: si el valor es impar (true) se va ver la imagen de color.
+  // else: si no es impar se queda sin sacar el color.
+  // El contador se vera en pantalla debajo del boton de like
 
   containerViewFeed.querySelector('#postContainer').appendChild(postContainer);
 

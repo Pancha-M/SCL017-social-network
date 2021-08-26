@@ -1,8 +1,10 @@
+import {
+  errorInvalidEmail, errorPassFunction, errorVerifiedEmail, sendMsgEmailVerified,
+} from './erroresSignUp.js';
+
 const firebaseLoginFunctions = {
-  // ACA DENTRO IRAN LAS FUNCIONESDDE FIREBASE
 
   // INICIAR SESION CON GOOGLE
-
   signInGoogle: () => {
     const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -32,53 +34,68 @@ const firebaseLoginFunctions = {
       });
   },
 
-  // REGISTRO DE USUARIO
+  // REGISTRO DE NUEVO USUARIO
   signUpFunction: (password, email, username) => {
     firebase.auth().createUserWithEmailAndPassword(email, password)
     // Signed in
       .then(() => {
         const user = firebase.auth().currentUser;
+        console.log(`username${username}`);
         user.updateProfile({
           displayName: username,
         });
+        const db = firebase.firestore();
+        db.collection('profiles').add({
+          userName: username,
+          emailUser: email,
+        })
+          .then((docUser) => {
+            console.log('Document written with ID: ', docUser.id);
+            user.sendEmailVerification();
+            document.getElementById('containerModal').appendChild(sendMsgEmailVerified());
+            const modal = document.getElementById('containerModal');
+            modal.style.display = 'block';
+          })
+          .catch((error) => {
+            console.error('Error adding document: ', error);
+          });
       })
-      .then(() => {
-        window.location.assign('#feed');
-        console.log(password, email, username);
-      })
+
     // ...
       .catch((error) => {
         const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
+        if (errorCode === 'auth/weak-password') {
+          document.getElementById('containerModal').appendChild(errorPassFunction());
+          const modal = document.getElementById('containerModal');
+          modal.style.display = 'block';
+        }
+        if (errorCode === 'auth/invalid-email') {
+          document.getElementById('containerModal').appendChild(errorInvalidEmail());
+          const modal = document.getElementById('containerModal');
+          modal.style.display = 'block';
+        }
       });
   },
 
-<<<<<<< HEAD
-=======
-  //Inicio de sesion con constrasena e email
->>>>>>> upstream/master
+  // INICIO DE SESIÓN CON EMAIL Y CONTRASEÑA
   signInFunction: (email, password) => {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        // ...
-      })
-      .then(() => {
-        window.location.assign('#feed');
+        if (user && user.emailVerified === true) {
+          window.location.assign('#feed');
+        } else {
+          document.getElementById('containerModal').appendChild(errorVerifiedEmail());
+          const modal = document.getElementById('containerModal');
+          modal.style.display = 'block';
+        }
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
       });
   },
-
-<<<<<<< HEAD
-  // Datos almacenados en el inicio de sesion
-  // PUEDEN SERVIR PARA EL PERFIL
-=======
->>>>>>> upstream/master
 
 };
 

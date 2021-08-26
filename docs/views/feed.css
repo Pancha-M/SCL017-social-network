@@ -1,49 +1,172 @@
 nav {
 display: flex;
-align-items: baseline;
-justify-content: space-around;
-background-color: #fff; 
-
+align-items: center;
+background-color: #fff;
+flex-direction: row;
+align-content: stretch;
+justify-content: space-between;
+box-shadow: 0px 2px 4px 0px #bbbbbb;
 }
 
 .womanbike{
+    margin: 10px;
     color:rgba(160, 86, 140, 1);
-    Font-family: Roboto;
-    Font-style: Bold;
     Font-size: 22px;
 }
 
 .iconsNav{
     display: flex;
     align-items: baseline;
-<<<<<<< HEAD
-=======
-    /* background-color: #fff; */
->>>>>>> upstream/master
 }
 
 .homeIcon{
     border: none;
     background-color: #fff;
-    
+    color: #6FAAE4; 
+    font-size: 24px;
 }
 
 .searchIcon{
     border: none;
     background-color: #fff;
+    color: #6FAAE4; 
+    font-size: 24px;
 }
 
 .profileIcon{
     border: none;
     background-color: #fff;
+    color: #6FAAE4; 
+    font-size: 24px;
 }
 
 .menuIcon{
     border: none;
     background-color: #fff;
+    color: #6FAAE4; 
+    font-size: 24px;
 }
 
 .iconify{
     background-color: #fff;
     border: none;
 }
+
+main{
+    display: grid;
+    margin: 20px;
+    margin-top: 30px;
+    align-items: end;
+}
+
+.postUserContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    align-content: stretch;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 12px;
+    Width: 90%;
+    Height: 80%;
+    max-width: 450px;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 0px 2px 4px 0px #bbbbbb;
+}
+
+.user{
+    display: flex;
+    align-items: center;
+}
+
+.imgUser{
+    padding: 40px;
+    border-radius: 50px;
+    background-image: no-repeat;
+}
+
+.nameUser{
+    margin: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    color: rgba(100, 0, 73, 1);
+}
+
+.inputPost{
+    border: none;
+    border-radius: 3px;
+    background-color: rgba(243, 243, 243, 1);
+    color: rgba(100, 0, 73, 1);
+    width: 125%;
+    height: 40%;
+    padding: 4px;
+    font-size: 11px;
+}
+.inputPost::placeholder {
+    padding: 5px;
+    color: rgba(120, 0, 88, 0.55);
+    font-size: 10px;
+  }
+
+.buttonPost{
+    cursor: pointer;
+    border: none;
+    width: 58px;
+    height: 16px;
+    color: white;
+    background-color: #49b18e;
+    font-size: 10px;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0px 1px 3px 1px #bbbbbb;
+    margin-top: 5px;
+    margin-left: 1px;
+}
+
+.post{
+    color: rgba(152, 0, 111, 1);
+    box-shadow: 0px 2px 4px 0px #bbbbbb;
+    width: auto;
+    border-radius: 4px;
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+}
+
+.postUser{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.postDate{
+    font-size: 10px;
+}
+
+#divPostText{
+    font-size: 14px;
+}
+
+#formPost{
+    width: 79%;
+}
+
+.btnLike{
+    background-color: white;
+    border: none;
+    margin-right: 65%;
+}
+.btn-Edit{
+    background-color: white;
+    border: none;
+}
+.btn-Delete{
+    background-color: white;
+    border: none;
+}
+
+.noneButtonPost{ 
+    background-color: white; border: none; } 
+
+

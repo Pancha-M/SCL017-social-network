@@ -5,7 +5,7 @@ export const signIn = () => {
 
   const viewSignIn = `<div class="containerLogin">
                             <div class="logo">
-                                <img src="http://imgfz.com/i/nWLwBNi.png" alt="logo de la aplicación">
+                              <img class="logoWM" src="logoBike.png" alt="logo de la aplicación">
                             </div>
                           <div class="loginElements">
                           <p class="signInTitle">Ingresa tu mail y contraseña</p>
@@ -30,7 +30,6 @@ export const signIn = () => {
                        </div>`;
   containerViewSignIn.innerHTML = viewSignIn;
 
-  // Iniciar sesion con email y contraseña ya registrada
   const signInEmailPass = containerViewSignIn.querySelector('#signInEmailPass');
 
   signInEmailPass.addEventListener('click', () => {

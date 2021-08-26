@@ -1,11 +1,14 @@
+/* eslint-disable no-alert */
 import firebaseLoginFunctions from '../firebaseLogin.js';
 
 export const signUp = () => {
   const containerViewSignUp = document.createElement('div');
 
   const viewSignUp = `<div class="containerLogin">
+                        <div class="modal"id="containerModal">
+                        </div>
                         <div class="logo">
-                            <img src="http://imgfz.com/i/nWLwBNi.png" alt="logo de la aplicación">
+                          <img class="logoWM" src="logoBike.png" alt="logo de la aplicación">
                          
                         </div>
                         <div class="loginElements">
@@ -24,6 +27,7 @@ export const signUp = () => {
                                 </span></button>
                               </div>
                           </div>
+                         
                           <footer="aboutContainer">
                               <p class="about">Mas info sobre nuestra comunidad <b>aquí</b></p>
                           </footer> 
@@ -31,7 +35,6 @@ export const signUp = () => {
                       </div>`;
   containerViewSignUp.innerHTML = viewSignUp;
 
-  // Registro con email y contraseña
   const createUserButton = containerViewSignUp.querySelector('#createUserButton');
 
   createUserButton.addEventListener('click', () => {
@@ -46,7 +49,6 @@ export const signUp = () => {
         elementsSignUp.password,
         elementsSignUp.email,
         elementsSignUp.username,
-
       );
     } else {
       alert('LA CONTRASEÑA NO COINCIDE, PORFAVOR REINTENTA');

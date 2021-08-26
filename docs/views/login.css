@@ -7,6 +7,11 @@
 
 body{
     background-color: #FAF0EF;
+    background: no-repeat;
+}
+
+button{
+    cursor: pointer;
 }
 
 .containerLogin{
@@ -17,7 +22,7 @@ body{
     align-items: center;
 }
 
-img{  
+.logoWM{  
     margin-top: 45px;  
     Width: 305px;
     Height: auto;
@@ -121,17 +126,13 @@ b{
     .iconify:hover{
         background-color: #fcd3cf;
         border-radius: 5px;
-
     }
-
-
 
 @media (min-width: 1024px) {
 
     .containerLogin{
         margin-top: 114px;
         flex-direction: row;
-
     }
 
     img{    
@@ -144,7 +145,6 @@ b{
         width: 322px;
         height: 418px;
     }
-
 
     .signInButton{
         margin-top: 93px;
@@ -159,13 +159,9 @@ b{
         border:none;
     }
     
-     
-    
     .iconify{
         background-color: #ffff;
         padding: 5px;
     
     }
-
-
 }
